@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom/client';
 
 // import App from './01-base/01-class組件'
 // import App from './01-base/02-function組件'
-import App from './01-base/03-組件的嵌套'
+// import App from './01-base/03-組件的嵌套'
+import App from './01-base/04-組件的樣式'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
