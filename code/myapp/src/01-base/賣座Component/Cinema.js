@@ -13,14 +13,15 @@ export default class Cinema extends Component {
 
         // axios第三方庫，專門用來請求資料
         axios({
-            url: "https://pcw-api.iq.com/api/lego/hot?platformId=4&modeCode=ntw&langCode=zh_tw&deviceId=1bf4c1d372a30a38baa3a4e0e7bd462c&sid=1bf4c1d372a30a38baa3a4e0e7bd462c_1660468170250"
+            // url: "https://pcw-api.iq.com/api/albumList?deviceId=1bf4c1d372a30a38baa3a4e0e7bd462c&platformId=4&langCode=zh_tw&modeCode=ntw&pn=1&ps=20&chnId=2"
+            url: "https://pcw-api.iq.com/api/albumList?deviceId=1bf4c1d372a30a38baa3a4e0e7bd462c&platformId=4&langCode=zh_tw&modeCode=ntw&pn=1&ps=20&chnId=2"
             , method: "get"
         }).then(res => {
-            console.log(res.data.data)
+            console.log(res.data.data.epg)
 
             this.setState({
-                cenimaList: res.data.data
-                , cenimaListBak: res.data.data
+                cenimaList: res.data.data.epg
+                , cenimaListBak: res.data.data.epg
             })
         }).catch(e => {
             console.log(e)
