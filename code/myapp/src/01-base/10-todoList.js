@@ -28,7 +28,13 @@ export default class App extends Component {
                     {
                         this.state.list.map((item, index) =>
                             <li key={item.id}>
-                                {item.text}
+                                {/* {item.text} */}
+
+                                {/* 副文本展示 */}
+                                <span dangerouslySetInnerHTML={{
+                                    __html: item.text
+                                }}></span>
+
                                 {/* <button onClick={this.DelOnClick.bind(this, index)}>del</button> */}
                                 <button onClick={() => {
                                     this.DelOnClick(index);
