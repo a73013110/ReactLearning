@@ -9,7 +9,8 @@ import ReactDOM from 'react-dom/client';
 // import App from './01-base/06-事件綁定-2'
 // import App from './01-base/07-ref'
 // import App from './01-base/08-state'
-import App from './01-base/09-循環渲染'
+// import App from './01-base/09-循環渲染'
+import App from './01-base/10-todoList'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
