@@ -11,7 +11,8 @@ import ReactDOM from 'react-dom/client';
 // import App from './01-base/08-state'
 // import App from './01-base/09-循環渲染'
 // import App from './01-base/10-todoList'
-import App from './01-base/11-dangerouslySetinnerHTML'
+// import App from './01-base/11-dangerouslySetinnerHTML'
+import App from './01-base/12-賣座選項卡'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
