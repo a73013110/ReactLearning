@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import BetterScroll from 'better-scroll'
 
 export default class Cinema extends Component {
 
@@ -22,7 +23,12 @@ export default class Cinema extends Component {
             this.setState({
                 cenimaList: res.data.data.epg
                 , cenimaListBak: res.data.data.epg
+            }, () => {
+                new BetterScroll(".YikaiWrapper")
             })
+            
+            // new BetterScroll(".YikaiWrapper")    // 教學中此段語法OK，但事實上then內的setState動作似乎是異步，因此無法正常運作
+            
         }).catch(e => {
             console.log(e)
         })
@@ -32,14 +38,18 @@ export default class Cinema extends Component {
         return (
             <div>
                 <input onInput={this.handleInput}/>
-                {
-                    this.state.cenimaList.map(item => 
-                        <dl key={item.defaultTvId}>
-                            <dt>{item.name}</dt>
-                            <dd>{item.focus}</dd>
-                        </dl>
-                    )
-                }
+                <div className="YikaiWrapper" style={{height: "500px", overflow: "hidden"}}>
+                    <div className="YikaiContent">
+                        {
+                            this.state.cenimaList.map(item => 
+                                <dl key={item.defaultTvId}>
+                                    <dt>{item.name}</dt>
+                                    <dd>{item.focus}</dd>
+                                </dl>
+                            )
+                        }
+                    </div>
+                </div>
             </div>
         )
     }

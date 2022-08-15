@@ -12,7 +12,10 @@ import ReactDOM from 'react-dom/client';
 // import App from './01-base/09-循環渲染'
 // import App from './01-base/10-todoList'
 // import App from './01-base/11-dangerouslySetinnerHTML'
-import App from './01-base/12-賣座選項卡'
+// import App from './01-base/12-賣座選項卡'
+// import App from './01-base/13-setState同步異步'
+// import App from './01-base/14-betterScroll'
+import App from './01-base/15-betterscroll-cinema'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
