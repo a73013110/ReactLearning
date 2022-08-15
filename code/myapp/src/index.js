@@ -15,7 +15,8 @@ import ReactDOM from 'react-dom/client';
 // import App from './01-base/12-賣座選項卡'
 // import App from './01-base/13-setState同步異步'
 // import App from './01-base/14-betterScroll'
-import App from './01-base/15-betterscroll-cinema'
+// import App from './01-base/15-betterscroll-cinema'
+import App from './01-base/16-props'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
