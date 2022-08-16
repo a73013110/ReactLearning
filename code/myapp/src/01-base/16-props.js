@@ -3,6 +3,12 @@ import React, { Component } from 'react'
 import Navbar from './Navbar'
 
 export default class App extends Component {
+
+    obj = {
+        title: "屬性簡寫"
+        , leftShow: false
+    }
+
     render() {
         return (
             <div>
@@ -18,6 +24,8 @@ export default class App extends Component {
                     <h2>購物車</h2>
                     <Navbar title="購物車" />
                 </div>
+                
+                <Navbar {...this.obj} />
             </div>
         )
     }
