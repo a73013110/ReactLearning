@@ -18,7 +18,9 @@ import ReactDOM from 'react-dom/client';
 // import App from './01-base/15-betterscroll-cinema'
 // import App from './01-base/16-props'
 // import App from './01-base/17-props函數式組件'
-import App from './01-base/18-狀態vs屬性'
+// import App from './01-base/18-狀態vs屬性'
+// import App from './01-base/19-非受控'
+import App from './01-base/20-受控'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
