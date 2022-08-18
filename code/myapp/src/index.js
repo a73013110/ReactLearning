@@ -25,7 +25,8 @@ import ReactDOM from 'react-dom/client';
 // import App from './01-base/22-受控todoList'
 // import App from './02-advanced/01-子傳父'
 // import App from './02-advanced/02-非受控賣座選項卡'
-import App from './02-advanced/03-受控賣座選項卡'
+// import App from './02-advanced/03-受控賣座選項卡'
+import App from './02-advanced/04-父子通信版-表單域組件'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
