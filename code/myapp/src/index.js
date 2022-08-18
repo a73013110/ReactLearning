@@ -23,7 +23,9 @@ import ReactDOM from 'react-dom/client';
 // import App from './01-base/20-受控'
 // import App from './01-base/21-受控Cinema'
 // import App from './01-base/22-受控todoList'
-import App from './02-advanced/01-子傳父'
+// import App from './02-advanced/01-子傳父'
+import App from './02-advanced/02-非受控賣座選項卡'
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
