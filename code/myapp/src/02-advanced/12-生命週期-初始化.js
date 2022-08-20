@@ -9,7 +9,7 @@ export default class App extends Component {
     /**
      * 初始化
      */
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         console.log("componentWillMount")
 
         this.setState({
