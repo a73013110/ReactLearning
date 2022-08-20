@@ -30,7 +30,8 @@ import ReactDOM from 'react-dom/client';
 // import App from './02-advanced/05-ref版-表單域組件'
 // import App from './02-advanced/06-中間人模式'
 // import App from './02-advanced/07-發布訂閱'
-import App from './02-advanced/08-訂閱發布模式案例'
+// import App from './02-advanced/08-訂閱發布模式案例'
+import App from './02-advanced/09-context'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
