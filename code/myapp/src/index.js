@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
+/*
 // import App from './01-base/01-class組件'
 // import App from './01-base/02-function組件'
 // import App from './01-base/03-組件的嵌套'
@@ -23,6 +23,7 @@ import ReactDOM from 'react-dom/client';
 // import App from './01-base/20-受控'
 // import App from './01-base/21-受控Cinema'
 // import App from './01-base/22-受控todoList'
+*/
 // import App from './02-advanced/01-子傳父'
 // import App from './02-advanced/02-非受控賣座選項卡'
 // import App from './02-advanced/03-受控賣座選項卡'
@@ -32,8 +33,10 @@ import ReactDOM from 'react-dom/client';
 // import App from './02-advanced/07-發布訂閱'
 // import App from './02-advanced/08-訂閱發布模式案例'
 // import App from './02-advanced/09-context'
-import App from './02-advanced/10-插槽'
+// import App from './02-advanced/10-插槽'
 // import App from './02-advanced/11-插槽抽屜'
+import App from './02-advanced/12-生命週期-初始化'
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
