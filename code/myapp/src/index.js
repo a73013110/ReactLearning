@@ -31,7 +31,9 @@ import ReactDOM from 'react-dom/client';
 // import App from './02-advanced/06-中間人模式'
 // import App from './02-advanced/07-發布訂閱'
 // import App from './02-advanced/08-訂閱發布模式案例'
-import App from './02-advanced/09-context'
+// import App from './02-advanced/09-context'
+import App from './02-advanced/10-插槽'
+// import App from './02-advanced/11-插槽抽屜'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
