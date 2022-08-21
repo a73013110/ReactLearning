@@ -37,7 +37,7 @@ class FilmList extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props.type)
+        console.log("componentDidMount", this.props.type)
         if (this.props.type === 1) {
             console.log("現正熱映資料")
             axios({
