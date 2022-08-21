@@ -54,7 +54,11 @@ import ReactDOM from 'react-dom/client';
 // import App from './02-advanced/27-swiper-組件'
 */
 // import App from './03-hooks/01-useState'
-import App from './03-hooks/02-todolist'
+// import App from './03-hooks/02-todolist'
+// import App from './03-hooks/03-useEffect'
+// import App from './03-hooks/04-useEffect2'
+// import App from './03-hooks/05-useEffect2-案例'
+import App from './03-hooks/06-useEffect3'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
