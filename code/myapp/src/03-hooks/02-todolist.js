@@ -21,7 +21,7 @@ export default function App() {
                     {
                         list.map((item, index) =>
                             <li key={item}>{item}
-                                <button onClick={(index) => {
+                                <button onClick={() => {
 
                                     let newList = [...list];
                                     newList.splice(index, 1);
