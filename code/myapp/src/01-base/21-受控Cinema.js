@@ -7,8 +7,8 @@ export default class Cinema extends Component {
         super();
 
         this.state = {
-            cenimaList: []
-            // , cenimaListBak: []
+            cinemaList: []
+            // , cinemaListBak: []
             , myText: ""
         }
 
@@ -21,8 +21,8 @@ export default class Cinema extends Component {
             console.log(res.data.data.epg)
 
             this.setState({
-                cenimaList: res.data.data.epg
-                // , cenimaListBak: res.data.data.epg
+                cinemaList: res.data.data.epg
+                // , cinemaListBak: res.data.data.epg
             })
         }).catch(e => {
             console.log(e)
@@ -51,7 +51,7 @@ export default class Cinema extends Component {
     }
 
     getCienmaList() {
-        return this.state.cenimaList.filter(item => 
+        return this.state.cinemaList.filter(item => 
             item.name.toUpperCase().includes(this.state.myText.toUpperCase()) ||
             item.focus.toUpperCase().includes(this.state.myText.toUpperCase())
         )
@@ -60,14 +60,14 @@ export default class Cinema extends Component {
     // handleInput = (event) => {
     //     console.log(event.target.value)
 
-    //     var newList = this.state.cenimaListBak.filter(item => 
+    //     var newList = this.state.cinemaListBak.filter(item => 
     //         item.name.toUpperCase().includes(event.target.value.toUpperCase()) ||
     //         item.focus.toUpperCase().includes(event.target.value.toUpperCase())
     //     )
     //     this.setState({
-    //         cenimaList: newList
+    //         cinemaList: newList
     //     })
 
-    //     console.log(this.state.cenimaList);
+    //     console.log(this.state.cinemaList);
     // }
 }

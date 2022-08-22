@@ -3,7 +3,7 @@ import axios from 'axios'
 
 export default function Cinema() {
 
-    const [cenimaList, setCenimaList] = useState([])
+    const [cinemaList, setCinemaList] = useState([])
     const [myText, setMyText] = useState("")
 
     useEffect(() => {
@@ -14,18 +14,18 @@ export default function Cinema() {
             , method: "get"
         }).then(res => {
             console.log(res.data.data.epg)
-            setCenimaList(res.data.data.epg)
+            setCinemaList(res.data.data.epg)
         }).catch(e => {
             console.log(e)
         })
     }, [])
 
     const getCienmaList = useMemo(() => {
-        return cenimaList.filter(item =>
+        return cinemaList.filter(item =>
             item.name.toUpperCase().includes(myText.toUpperCase()) ||
             item.focus.toUpperCase().includes(myText.toUpperCase())
         )
-    }, [cenimaList, myText])
+    }, [cinemaList, myText])
 
     return (
         <div>
@@ -70,7 +70,7 @@ export default function Cinema() {
 //     }
 
 //     getCienmaList() {
-//         return this.state.cenimaList.filter(item =>
+//         return this.state.cinemaList.filter(item =>
 //             item.name.toUpperCase().includes(this.state.myText.toUpperCase()) ||
 //             item.focus.toUpperCase().includes(this.state.myText.toUpperCase())
 //         )
