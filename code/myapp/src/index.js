@@ -61,7 +61,9 @@ import ReactDOM from 'react-dom/client';
 // import App from './03-hooks/06-useEffect3'
 // import App from './03-hooks/07-useCallback1'
 // import App from './03-hooks/08-useCallback2'
-import App from './03-hooks/09-useMemo'
+// import App from './03-hooks/09-useMemo'
+// import App from './03-hooks/10-useRef'
+import App from './03-hooks/11-useRef-保存值'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
