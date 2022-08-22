@@ -53,6 +53,7 @@ import ReactDOM from 'react-dom/client';
 // import App from './02-advanced/26-swiper-異步'
 // import App from './02-advanced/27-swiper-組件'
 */
+/*
 // import App from './03-hooks/01-useState'
 // import App from './03-hooks/02-todolist'
 // import App from './03-hooks/03-useEffect'
@@ -68,7 +69,9 @@ import ReactDOM from 'react-dom/client';
 // import App from './03-hooks/13-useReducer1'
 // import App from './03-hooks/14-useReducer2'
 // import App from './03-hooks/15-useReducer3'
-import App from './03-hooks/16-自定義hooks'
+// import App from './03-hooks/16-自定義hooks'
+*/
+import App from './04-router/App'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
