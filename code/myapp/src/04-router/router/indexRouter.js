@@ -11,12 +11,13 @@ export default class indexRouter extends Component {
         return (
             <HashRouter>
                 <Routes>
+                    <Route path='*' element={<NotFound />} />
+                    <Route path={'/'} element={<Navigate to="/films" replace />} />
+
                     <Route path={'/films'} element={<Films />} />
                     <Route path={'/cinemas'} element={<Cenimas />} />
                     <Route path={'/center'} element={<Center />} />
                     
-                    <Route path={'/'} element={<Navigate to="/films" replace />} />
-                    {/* <Route element={<NotFound />} /> */}
                 </Routes>
             </HashRouter>
         )
