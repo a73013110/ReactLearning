@@ -16,8 +16,7 @@ export default class indexRouter extends Component {
 
                     <Route path={'/films'} element={<Films />} />
                     <Route path={'/cinemas'} element={<Cenimas />} />
-                    <Route path={'/center'} element={<Center />} />
-                    
+                    <Route path={'/center'} element={<Center />} />                    
                 </Routes>
             </HashRouter>
         )
