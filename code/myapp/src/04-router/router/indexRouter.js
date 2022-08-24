@@ -13,15 +13,16 @@ export default class indexRouter extends Component {
     render() {
         return (
             <HashRouter>
+                {this.props.children}
                 <Routes>
                     {/* 默認初始化入口 */}
                     <Route path="/" element={<Navigate to="/films" />} />
 
                     <Route path="/films/*" element={<Films />} />
                     <Route path="/cinemas" element={<Cenimas />} />
-                    <Route path="/center" element={<Center />} />      
+                    <Route path="/center" element={<Center />} />
                     {/* 404頁面 */}
-                    <Route path="*" element={<NotFound />} />              
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
             </HashRouter>
         )
