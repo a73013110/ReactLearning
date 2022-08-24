@@ -8,6 +8,7 @@ import Comingsoon from '../views/films/Comingsoon'
 import Cenimas from '../views/Cenimas'
 import Center from '../views/Center'
 import NotFound from '../views/NotFound'
+import Detail from '../views/Detail'
 
 export default class indexRouter extends Component {
     render() {
@@ -21,6 +22,9 @@ export default class indexRouter extends Component {
                     <Route path="/films/*" element={<Films />} />
                     <Route path="/cinemas" element={<Cenimas />} />
                     <Route path="/center" element={<Center />} />
+                    {/* 動態路由 */}
+                    {/* <Route path="/detail" element={<Detail />} /> */}
+                    <Route path="/detail/:myid" element={<Detail />} />
                     {/* 404頁面 */}
                     <Route path="*" element={<NotFound />} />
                 </Routes>
