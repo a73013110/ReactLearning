@@ -9,8 +9,8 @@ export default function Login() {
         <div>
             <input type="text" />
             <button onClick={() => {
-                localStorage.setItem("token", "123")
-                navigate("/films")
+                localStorage.setItem("token", "yikai")
+                navigate("/center")
             }}>登入</button>
         </div>
     )

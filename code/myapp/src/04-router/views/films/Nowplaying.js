@@ -25,6 +25,7 @@ export default function Nowplaying(props) {
 
     const handleChangePage = (id) => {
         // window.location.href = "#/detail/" + id
+        // navigate(`/detail?id=${id}`)
         navigate(`/detail/${id}`)
         // navigate(`/detail`, { state: { myid: id } })
     }

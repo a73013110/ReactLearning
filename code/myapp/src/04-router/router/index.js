@@ -19,13 +19,15 @@ export default function MRouter() {
             {/* <Route path="/" element={<Redirect to="/film" />} /> */}
             <Route path="/login" element={<Login />} />
 
-            <Route path="/film" element={<Film />}>                
+            <Route path="/film" element={<Film />}>
                 <Route index element={<Redirect to="/film/nowplaying" />} />
                 <Route path="nowplaying" element={<Nowplaying />} />
                 <Route path="comingsoon" element={<Comingsoon />} />
             </Route>
             <Route path="/cinema" element={<Cenima />} />
-            <Route path="/center" element={<Center />} />
+            <Route path="/center" element={<AuthComponent>
+                <Center />
+            </AuthComponent>} />
             {/* 動態路由 */}
             {/* <Route path="/detail" element={<Detail />} /> */}
             <Route path="/detail/:myid" element={<Detail />} />
@@ -33,4 +35,9 @@ export default function MRouter() {
             <Route path="*" element={<NotFound />} />
         </Routes>
     )
+}
+
+function AuthComponent({ children }) {
+    const isLogin = localStorage.getItem("token")
+    return isLogin ? children : <Redirect to="/login"/>
 }

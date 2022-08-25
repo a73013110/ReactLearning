@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 export default function Redirect({ to }) {
@@ -6,7 +6,7 @@ export default function Redirect({ to }) {
 
     useEffect(() => {
         navigate(to, { replace: true })
-    }, [])
+    })
 
     return null
 }

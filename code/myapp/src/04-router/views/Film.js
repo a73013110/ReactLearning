@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Routes, useNavigate, Link, Navigate, Outlet } from 'react-router-dom'
+import { useNavigate, Link, Outlet } from 'react-router-dom'
 
 export default function Films() {
     
