@@ -1,17 +1,10 @@
-import React, { Component } from 'react'
+import { HashRouter } from 'react-router-dom'
+import MRouter from './router'
 
-import MRouter from './router/indexRouter'
-import Tabbar from './components/Tabbar'
-
-export default class App extends Component {
-    render() {
-        return (
-            <div>
-                <MRouter>
-                    <Tabbar></Tabbar>
-                </MRouter>
-
-            </div>
-        )
-    }
+export default function App() {
+    return (
+        <HashRouter>
+            <MRouter></MRouter>
+        </HashRouter>
+    )
 }
