@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { NavLink, useNavigate } from 'react-router-dom'
+
+import FilmItem from './FilmItem'
+import FilmItem_class from './FilmItem_class'
 
 export default function Nowplaying(props) {
     const [list, setList] = useState([])
-    const navigate = useNavigate()
 
     useEffect(() => {
         // axios第三方庫，專門用來請求資料
@@ -23,20 +24,13 @@ export default function Nowplaying(props) {
         })
     }, [])
 
-    const handleChangePage = (id) => {
-        // window.location.href = "#/detail/" + id
-        // navigate(`/detail?id=${id}`)
-        navigate(`/detail/${id}`)
-        // navigate(`/detail`, { state: { myid: id } })
-    }
-
     return (
         <div>
             {
-                list.map(item => <li key={item.filmId} onClick={() => handleChangePage(item.filmId)}>
-                    {/* <NavLink to={"/detail/"" + item.filmId}>{item.name}</NavLink> */}
-                    {item.name}
-                </li>)
+                list.map(item => 
+                    // <FilmItem key={item.filmId} {...item}></FilmItem>
+                    <FilmItem_class key={item.filmId} {...item}></FilmItem_class>
+                )
             }
         </div>
     )
