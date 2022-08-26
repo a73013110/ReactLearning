@@ -28,8 +28,8 @@ export default function Nowplaying(props) {
         <div>
             {
                 list.map(item => 
-                    // <FilmItem key={item.filmId} {...item}></FilmItem>
-                    <FilmItem_class key={item.filmId} {...item}></FilmItem_class>
+                    <FilmItem key={item.filmId} {...item}></FilmItem>
+                    // <FilmItem_class key={item.filmId} {...item}></FilmItem_class>
                 )
             }
         </div>

@@ -3,7 +3,7 @@ import withRouter from '../../components/withRouter'
 
 class FilmItem extends Component {
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         return (
             <li onClick={() => this.handleClick(this.props.filmId)}>
                 {this.props.name}
