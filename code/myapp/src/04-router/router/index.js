@@ -1,40 +1,55 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
+import React from 'react'
+import { useRoutes } from 'react-router-dom'
 import Redirect from '../components/Redirect'
 
-// import Film from '../views/Film'
-// import Nowplaying from '../views/films/Nowplaying'
-// import Comingsoon from '../views/films/Comingsoon'
-
-// import Cenima from '../views/Cenima'
-// import Center from '../views/Center'
-// import NotFound from '../views/NotFound'
-// import Detail from '../views/Detail'
-// import Login from '../views/Login'
-import React from 'react'
-
 export default function MRouter() {
-    return (
-        <Routes>
-            {/* 默認初始化入口 */}
-            <Route path="/" element={LazyLoad("Film")} />
-            {/* <Route path="/" element={<Redirect to="/film" />} /> */}
-            <Route path="/login" element={LazyLoad("Login")} />
+    const element = useRoutes([
+        {
+            path: "/",
+            element: <Redirect to="/film" />
+        },
+        {
+            path: "/login",
+            element: LazyLoad("Login")
+        },
+        {
+            path: "/film",
+            element: LazyLoad("Film"),
+            children: [
+                {
+                    path: "",
+                    element: <Redirect to="/film/nowplaying" />
+                },
+                {
+                    path: "nowplaying",
+                    element: LazyLoad("films/Nowplaying")
+                },
+                {
+                    path: "comingsoon",
+                    element: LazyLoad("films/Comingsoon")
+                }
+            ]
+        },
+        {
+            path: "/cinema",
+            element: LazyLoad("Cenima")
+        },
+        {
+            path: "/center",
+            element: <AuthComponent>{LazyLoad("Center")}</AuthComponent>
+        },
+        {
+            path: "/detail/:myid",
+            element: LazyLoad("Detail")
+        },
+        {
+            path: "*",
+            element: LazyLoad("NotFound")
+        },
+    ])
 
-            <Route path="/film" element={LazyLoad("Film")}>
-                <Route index element={<Redirect to="/film/nowplaying" />} />
-                <Route path="nowplaying" element={LazyLoad("films/Nowplaying")} />
-                <Route path="comingsoon" element={LazyLoad("films/Comingsoon")} />
-            </Route>
-            <Route path="/cinema" element={LazyLoad("Cenima")} />
-            <Route path="/center" element={<AuthComponent>
-                {LazyLoad("Center")}
-            </AuthComponent>} />
-            {/* 動態路由 */}
-            {/* <Route path="/detail" element={<Detail />} /> */}
-            <Route path="/detail/:myid" element={LazyLoad("Detail")} />
-            {/* 404頁面 */}
-            <Route path="*" element={LazyLoad("NotFound")} />
-        </Routes>
+    return (
+        element
     )
 }
 
