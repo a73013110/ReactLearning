@@ -1,18 +1,22 @@
-import { createStore, combineReducers } from 'redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
 import CityReducer from './reducers/CityReducer'
 import TabbarReducer from './reducers/TabbarReducer'
+import CinemaListReducer from './reducers/CinemaListReducer'
+import reduxThunk from 'redux-thunk'    // 若Action為異步
 
 const reducer = combineReducers({
     CityReducer,
-    TabbarReducer
+    TabbarReducer,
+    CinemaListReducer
 })
 
 /**
  * store.subscribe
  * store.dispatch
  * store.getState
+ * applyMiddleware(reduxThunk): 若Action為異步，將透過中間件處理
  */
-const store = createStore(reducer)
+const store = createStore(reducer, applyMiddleware(reduxThunk))
 export default store
 
 /**

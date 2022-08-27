@@ -10,18 +10,18 @@
 const TabbarReducer = (prevState = {
     show: true
 }, action) => {
-    let newStat = { ...prevState }
+    let newState = { ...prevState }
     switch (action.type) {
         case "hide-tabbar":
-            newStat.show = false;
+            newState.show = false;
             break;
         case "show-tabbar":
-            newStat.show = true;
+            newState.show = true;
             break;
         default:
             break;
     }
-    return newStat
+    return newState
 }
 
 export default TabbarReducer

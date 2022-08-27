@@ -7,13 +7,13 @@
  * @param {*} action 
  * @returns 
  */
-const CityReducer = (prevState = {
-    cityName: "北京"
+ const CinemaListReducer = (prevState = {
+    list: []
 }, action) => {
     let newState = { ...prevState }
     switch (action.type) {
-        case "change-city":
-            newState.cityName = action.payload;
+        case "change-list":
+            newState.list = action.payload;
             break;
         default:
             break;
@@ -21,4 +21,4 @@ const CityReducer = (prevState = {
     return newState
 }
 
-export default CityReducer
+export default CinemaListReducer
