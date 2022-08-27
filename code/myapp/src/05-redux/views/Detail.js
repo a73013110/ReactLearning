@@ -1,19 +1,23 @@
 import React, { useEffect } from 'react'
 import { useParams, useLocation, useSearchParams, useNavigate } from 'react-router-dom'
+import store from '../redux/stroe'
+import { hide, show } from '../redux/actionCreator/TabbarActionCreator'
 
 export default function Detail(props) {
     // const [searchParams, setSearchParams] = useSearchParams()
     // console.log(searchParams.get("id"))
     const params = useParams()
     const navigate = useNavigate()
-    console.log("Params", params)
+    // console.log("Params", params)
     // const location = useLocation();
     // console.log("Location", location)
 
     useEffect(() => {
-        console.log("Creage")
+        console.log("Detail Create")
+        store.dispatch(hide())
         return () => {
-            console.log("Destory")
+            console.log("Detail Destory")
+            store.dispatch(show())
         }
     }, [])
 
