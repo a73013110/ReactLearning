@@ -1,6 +1,8 @@
 import React from 'react'
 import { useNavigate, Link, Outlet, NavLink } from 'react-router-dom'
 
+import style from './css/Film.module.css'
+
 export default function Films() {
     
     const navigate = useNavigate()
@@ -13,10 +15,10 @@ export default function Films() {
 
             <ul>
                 <li>
-                    <NavLink to="/film/nowplaying">正在熱映</NavLink>
+                    <NavLink to="/film/nowplaying" className={({ isActive }) => isActive ? style.active : ''}>正在熱映</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/film/comingsoon">即將上映</NavLink>
+                    <NavLink to="/film/comingsoon" className={({ isActive }) => isActive ? style.active : ''}>即將上映</NavLink>
                 </li>
             </ul>
 
