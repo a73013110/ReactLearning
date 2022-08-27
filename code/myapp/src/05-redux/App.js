@@ -16,6 +16,7 @@ export default function App() {
             console.log("App中訂閱", store.getState())
             setIsShow(store.getState().show)
         })
+        // 銷毀此組件時必須清除訂閱
         return () => {
             unsubscribe()
         }
