@@ -1,29 +1,18 @@
-import { createStore } from 'redux'
+import { createStore, combineReducers } from 'redux'
+import CityReducer from './reducers/CityReducer'
+import TabbarReducer from './reducers/TabbarReducer'
 
-const reducer = (prevState = {
-    show: true
-}, action) => {
-    console.log("store", action)
-    let newStat = {...prevState}
-    switch (action.type) {
-        case "hide-tabbar":
-            newStat.show = false;
-            break;
-        case "show-tabbar":
-            newStat.show = true;
-            break;
-        default:
-            break;
-    }
-    return newStat
-}
+const reducer = combineReducers({
+    CityReducer,
+    TabbarReducer
+})
 
 /**
  * store.subscribe
  * store.dispatch
  * store.getState
  */
-const store = createYikaiStore(reducer)
+const store = createStore(reducer)
 export default store
 
 /**
@@ -37,13 +26,13 @@ function createYikaiStore(reducer) {
 
     function subscribe(callback) {
         list.push(callback)
-        var index =list.length - 1
+        var index = list.length - 1
         return () => list.splice(index, 1)  // 回傳unsubscribe方法
     }
 
     function dispatch(action) {
         state = reducer(state, action)  // 更新State
-        for(var i in list) {
+        for (var i in list) {
             list[i] && list[i]()
         }
     }

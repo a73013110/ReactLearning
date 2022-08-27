@@ -35,6 +35,10 @@ export default function MRouter() {
             element: LazyLoad("Cenima")
         },
         {
+            path: "/city",
+            element: LazyLoad("City")
+        },
+        {
             path: "/center",
             element: <AuthComponent>{LazyLoad("Center")}</AuthComponent>
         },

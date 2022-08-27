@@ -14,7 +14,7 @@ export default function App() {
     useEffect(() => {
         unsubscribe = store.subscribe(() => {
             console.log("App中訂閱", store.getState())
-            setIsShow(store.getState().show)
+            setIsShow(store.getState().TabbarReducer.show)
         })
         // 銷毀此組件時必須清除訂閱
         return () => {
