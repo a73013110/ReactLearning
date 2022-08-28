@@ -1,9 +1,20 @@
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
+import { configureStore, combineReducers } from '@reduxjs/toolkit'
+
+//#region Reducer
 import CityReducer from './reducers/CityReducer'
 import TabbarReducer from './reducers/TabbarReducer'
 import CinemaListReducer from './reducers/CinemaListReducer'
-import reduxThunk from 'redux-thunk'    // 若Action為異步
-import reduxPromise from 'redux-promise'
+//#endregion
+
+//#region MiddleWare
+// import thunkMiddleWare from 'redux-thunk'    // 若Action為異步
+import promiseMiddleWare from 'redux-promise'
+import loggerMiddleWare from '../redux/middleware/logger'
+//#endregion
+
+//#region Enhancer
+import monitorReducerEnhancer from '../redux/enhancers/monitorReducer'
+//#endregion
 
 const reducer = combineReducers({
     CityReducer,
@@ -15,11 +26,25 @@ const reducer = combineReducers({
  * store.subscribe
  * store.dispatch
  * store.getState
- * applyMiddleware(reduxThunk): 若Action為異步，將透過中間件處理
+ * applyMiddleware(thunkMiddleWare): 若Action為異步，將透過中間件處理
  */
-// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__ || compose;
-// const store = createStore(reducer, composeEnhancers(applyMiddleware(reduxThunk, reduxPromise)))
-const store = createStore(reducer, applyMiddleware(reduxThunk, reduxPromise))
+// const store = createStore(reducer, applyMiddleware(thunkMiddleWare, promiseMiddleWare))
+
+/**
+ * Docs: https://redux-toolkit.js.org/api/configureStore
+ * 預設帶入redux-thunk Middleware
+ */
+const store = configureStore({
+    reducer,
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+        serializableCheck: false,   // 不檢查Action回傳資料是否正確序列化
+    })
+        .concat(loggerMiddleWare)
+        .concat(promiseMiddleWare),
+    devTools: process.env.NODE_ENV !== 'production',
+    preloadedState: undefined,
+    enhancers: (defaultEnhancers) => [monitorReducerEnhancer, ...defaultEnhancers]
+})
 export default store
 
 /**
