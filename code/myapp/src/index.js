@@ -1,5 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
+import { Provider } from 'react-redux'
+import store from './06-react-redux/redux/stroe';
+
 /*
 // import App from './01-base/01-class組件'
 // import App from './01-base/02-function組件'
@@ -82,6 +86,8 @@ import App from './06-react-redux/App'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     // <React.StrictMode>
+    <Provider store={store}>
         <App />
+    </Provider>
     // </React.StrictMode>
 );
