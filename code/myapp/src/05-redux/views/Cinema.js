@@ -33,7 +33,9 @@ export default function Cenimas() {
                 <div onClick={() => {
                     navigate("/city")
                 }} style={{float: "left"}}>{cityName}</div>
-                <div style={{float: "right"}}>查詢</div>
+                <div onClick={() => {
+                    navigate("/cinema/search")
+                }} style={{float: "right"}}>查詢</div>
             </div>
             <ul>
                 {
