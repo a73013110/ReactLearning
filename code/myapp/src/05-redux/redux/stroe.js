@@ -1,4 +1,4 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux'
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import CityReducer from './reducers/CityReducer'
 import TabbarReducer from './reducers/TabbarReducer'
 import CinemaListReducer from './reducers/CinemaListReducer'
@@ -17,6 +17,8 @@ const reducer = combineReducers({
  * store.getState
  * applyMiddleware(reduxThunk): 若Action為異步，將透過中間件處理
  */
+// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__ || compose;
+// const store = createStore(reducer, composeEnhancers(applyMiddleware(reduxThunk, reduxPromise)))
 const store = createStore(reducer, applyMiddleware(reduxThunk, reduxPromise))
 export default store
 
