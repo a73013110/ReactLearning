@@ -32,7 +32,13 @@ export default function MRouter() {
         },
         {
             path: "/cinema",
-            element: LazyLoad("Cenima")
+            element: LazyLoad("Cinema"),
+            children: [
+                {
+                    path: "search",
+                    element: LazyLoad("Search")
+                }
+            ]
         },
         {
             path: "/city",

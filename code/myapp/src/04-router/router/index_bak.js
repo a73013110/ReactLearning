@@ -5,7 +5,7 @@ import Redirect from '../components/Redirect'
 // import Nowplaying from '../views/films/Nowplaying'
 // import Comingsoon from '../views/films/Comingsoon'
 
-// import Cenima from '../views/Cenima'
+// import Cinema from '../views/Cinema'
 // import Center from '../views/Center'
 // import NotFound from '../views/NotFound'
 // import Detail from '../views/Detail'
@@ -25,7 +25,7 @@ export default function MRouter() {
                 <Route path="nowplaying" element={LazyLoad("films/Nowplaying")} />
                 <Route path="comingsoon" element={LazyLoad("films/Comingsoon")} />
             </Route>
-            <Route path="/cinema" element={LazyLoad("Cenima")} />
+            <Route path="/cinema" element={LazyLoad("Cinema")} />
             <Route path="/center" element={<AuthComponent>
                 {LazyLoad("Center")}
             </AuthComponent>} />

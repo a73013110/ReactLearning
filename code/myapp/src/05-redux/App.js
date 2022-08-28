@@ -9,10 +9,9 @@ import './views/css/App.css'
 export default function App() {
 
     const [isShow, setIsShow] = useState(true)
-    let unsubscribe = null;
 
     useEffect(() => {
-        unsubscribe = store.subscribe(() => {
+        let unsubscribe = store.subscribe(() => {
             console.log("App中訂閱", store.getState())
             setIsShow(store.getState().TabbarReducer.show)
         })

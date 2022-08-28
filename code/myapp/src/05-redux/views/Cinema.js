@@ -29,9 +29,12 @@ export default function Cenimas() {
 
     return (
         <div>
-            <div onClick={() => {
-                navigate("/city")
-            }}>{cityName}</div>
+            <div style={{ overflow: "hidden" }}>
+                <div onClick={() => {
+                    navigate("/city")
+                }} style={{float: "left"}}>{cityName}</div>
+                <div style={{float: "right"}}>查詢</div>
+            </div>
             <ul>
                 {
                     cinemaList.map(item =>
