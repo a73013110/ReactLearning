@@ -1,36 +1,28 @@
 import React, { useState, useEffect, useMemo } from 'react'
-import store from '../redux/stroe'
+import { useDispatch, useSelector } from 'react-redux'
 import getCinemaListAction from '../redux/actionCreator/CinemaListAction'
 
 export default function Search() {
+    const CinemaListReducer = useSelector(state => state.CinemaListReducer)
+    const dispatch = useDispatch()
+
     const [searchText, setSearchText] = useState("")
-    const [cinemaList, setCinemaList] = useState(store.getState().CinemaListReducer.list)
 
     useEffect(() => {
-        console.log(cinemaList)
-        if (store.getState().CinemaListReducer.list.length === 0) {
-            store.dispatch(getCinemaListAction())
+        if (CinemaListReducer.list.length === 0) {
+            dispatch(getCinemaListAction())
         }
         else {
             console.log("Store緩存")
         }
-
-        let unsubscribe = store.subscribe(() => {
-            console.log("Cinema中訂閱", store.getState())
-            setCinemaList(store.getState().CinemaListReducer.list)
-        })
-        // 銷毀此組件時必須清除訂閱
-        return () => {
-            unsubscribe()
-        }
-    }, [])
+    }, [CinemaListReducer.list])
 
     const getCinemaList = useMemo(() => {
-        return cinemaList.filter(item =>
+        return CinemaListReducer.list.filter(item =>
             item.name.toUpperCase().includes(searchText.toUpperCase()) ||
             item.desc.toUpperCase().includes(searchText.toUpperCase()) 
         )
-    }, [searchText, cinemaList])
+    }, [searchText, CinemaListReducer.list])
 
     return (
         <div>
