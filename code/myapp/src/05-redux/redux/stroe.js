@@ -3,6 +3,7 @@ import CityReducer from './reducers/CityReducer'
 import TabbarReducer from './reducers/TabbarReducer'
 import CinemaListReducer from './reducers/CinemaListReducer'
 import reduxThunk from 'redux-thunk'    // 若Action為異步
+import reduxPromise from 'redux-promise'
 
 const reducer = combineReducers({
     CityReducer,
@@ -16,7 +17,7 @@ const reducer = combineReducers({
  * store.getState
  * applyMiddleware(reduxThunk): 若Action為異步，將透過中間件處理
  */
-const store = createStore(reducer, applyMiddleware(reduxThunk))
+const store = createStore(reducer, applyMiddleware(reduxThunk, reduxPromise))
 export default store
 
 /**

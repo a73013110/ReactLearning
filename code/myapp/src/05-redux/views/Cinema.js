@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import getCinemaListAction from '../redux/actionCreator/CinemaListAction'
+import { getCinemaListAction, getCinemaListActionPromise, getCinemaListActionAsync } from '../redux/actionCreator/CinemaListAction'
 import store from '../redux/stroe'
 
 export default function Cenimas() {
@@ -10,7 +10,9 @@ export default function Cenimas() {
 
     useEffect(() => {
         if (store.getState().CinemaListReducer.list.length === 0) {
-            store.dispatch(getCinemaListAction())
+            // store.dispatch(getCinemaListAction())
+            // store.dispatch(getCinemaListActionPromise())
+            store.dispatch(getCinemaListActionAsync())
         }
         else {
             console.log("Store緩存")
