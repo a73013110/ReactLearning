@@ -74,7 +74,10 @@ import ReactDOM from 'react-dom/client';
 /*
 // import App from './04-router/App'
 */
+/*
 import App from './05-redux/App'
+*/
+import App from './06-react-redux/App'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
