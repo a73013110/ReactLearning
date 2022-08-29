@@ -14,14 +14,13 @@ const TabbarReducer = (prevState = {
     switch (action.type) {
         case "hide-tabbar":
             newState.show = false;
-            break;
+            return newState
         case "show-tabbar":
             newState.show = true;
-            break;
+            return newState
         default:
-            break;
+            return newState
     }
-    return newState
 }
 
 export default TabbarReducer

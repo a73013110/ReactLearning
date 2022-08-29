@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react'
+import { persistStore } from 'redux-persist'
 import store from './06-react-redux/redux/stroe';
 
 /*
@@ -83,11 +85,15 @@ import App from './05-redux/App'
 */
 import App from './06-react-redux/App'
 
+let persistor = persistStore(store)
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    // <React.StrictMode>
-    <Provider store={store}>
-        <App />
-    </Provider>
-    // </React.StrictMode>
+    <React.StrictMode>
+        <Provider store={store}>
+            <PersistGate loading={null} persistor={persistor}>
+                <App />
+            </PersistGate>
+        </Provider>
+    </React.StrictMode>
 );

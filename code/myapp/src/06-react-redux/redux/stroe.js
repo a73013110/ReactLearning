@@ -1,4 +1,16 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
+import {
+    persistStore,
+    persistReducer,
+    FLUSH,
+    REHYDRATE,
+    PAUSE,
+    PERSIST,
+    PURGE,
+    REGISTER,
+} from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+
 
 //#region Reducer
 import CityReducer from './reducers/CityReducer'
@@ -22,6 +34,14 @@ const reducer = combineReducers({
     CinemaListReducer
 })
 
+const persistConfig = {
+    key: 'root',
+    version: 1,
+    storage
+}
+
+const persistedReducer = persistReducer(persistConfig, reducer)
+
 /**
  * store.subscribe
  * store.dispatch
@@ -35,14 +55,14 @@ const reducer = combineReducers({
  * 預設帶入redux-thunk Middleware
  */
 const store = configureStore({
-    reducer,
+    reducer: persistedReducer,
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
         serializableCheck: false,   // 不檢查Action回傳資料是否正確序列化
     })
         .concat(loggerMiddleWare)
         .concat(promiseMiddleWare),
     devTools: process.env.NODE_ENV !== 'production',
-    preloadedState: undefined,
+    // preloadedState: undefined,
     enhancers: (defaultEnhancers) => [monitorReducerEnhancer, ...defaultEnhancers]
 })
 export default store

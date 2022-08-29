@@ -1,3 +1,5 @@
+import { REHYDRATE } from 'redux-persist'
+
 /**
  * Reducer主要用途：傳入State、參數，回根據條件回傳新State
  * Reducer：純函數(Pure Function) => 定義：
@@ -14,11 +16,16 @@ const CityReducer = (prevState = {
     switch (action.type) {
         case "change-city":
             newState.cityName = action.payload;
-            break;
+            return newState
+        case REHYDRATE:
+            if (action.payload) {
+                var incoming = action.payload.CityReducer;
+                if (incoming) return { ...newState, ...incoming };
+            }
+            return newState;
         default:
-            break;
+            return newState
     }
-    return newState
 }
 
 export default CityReducer

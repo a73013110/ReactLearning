@@ -14,11 +14,10 @@
     switch (action.type) {
         case "change-list":
             newState.list = action.payload;
-            break;
+            return newState
         default:
-            break;
+            return newState
     }
-    return newState
 }
 
 export default CinemaListReducer
