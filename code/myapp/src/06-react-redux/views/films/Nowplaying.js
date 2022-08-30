@@ -8,7 +8,6 @@ export default function Nowplaying(props) {
     const [list, setList] = useState([])
 
     useEffect(() => {
-        console.log("Nowplaying CTEATE")
         // axios第三方庫，專門用來請求資料
         // axios({
         //     // url: "https://pcw-api.iq.com/api/albumList?deviceId=1bf4c1d372a30a38baa3a4e0e7bd462c&platformId=4&langCode=zh_tw&modeCode=ntw&pn=1&ps=20&chnId=2"
@@ -24,10 +23,6 @@ export default function Nowplaying(props) {
         }).catch(e => {
             console.log(e)
         })
-
-        return () => {
-            console.log("Nowplaying DESTROY")
-        }
     }, [])
 
     return (

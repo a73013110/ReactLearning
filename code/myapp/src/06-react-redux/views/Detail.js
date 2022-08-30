@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { useParams, useLocation, useSearchParams, useNavigate } from 'react-router-dom'
-import { hide, show } from '../redux/actionCreator/TabbarActionCreator'
+import { tabbarActions } from '../redux/slices/TabbarSlice'
 
 export default function Detail() {
     // const [searchParams, setSearchParams] = useSearchParams()
@@ -16,10 +16,10 @@ export default function Detail() {
 
     useEffect(() => {
         console.log("Detail Create")
-        dispatch(hide())
+        dispatch(tabbarActions.hide())
         return () => {
             console.log("Detail Destory")
-            dispatch(show())
+            dispatch(tabbarActions.show())
         }
     }, [])
 

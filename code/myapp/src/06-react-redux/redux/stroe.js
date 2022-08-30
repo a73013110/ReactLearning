@@ -12,10 +12,10 @@ import {
 import storage from 'redux-persist/lib/storage'
 
 
-//#region Reducer
-import CityReducer from './reducers/CityReducer'
-import TabbarReducer from './reducers/TabbarReducer'
-import CinemaListReducer from './reducers/CinemaListReducer'
+//#region Slice
+import CitySlice from './slices/CitySlice'
+import TabbarSlice from './slices/TabbarSlice'
+import CinemaSlice from './slices/CinemaSlice'
 //#endregion
 
 //#region MiddleWare
@@ -28,20 +28,20 @@ import loggerMiddleWare from '../redux/middleware/logger'
 import monitorReducerEnhancer from '../redux/enhancers/monitorReducer'
 //#endregion
 
-const reducer = combineReducers({
-    CityReducer,
-    TabbarReducer,
-    CinemaListReducer
+const reducers = combineReducers({
+    city: CitySlice,
+    tabbar: TabbarSlice,
+    cinema: CinemaSlice
 })
 
 const persistConfig = {
     key: 'root',
     version: 1,
     storage,
-    whitelist: ["CityReducer"]
+    whitelist: ["city"]
 }
 
-const persistedReducer = persistReducer(persistConfig, reducer)
+const persistedReducer = persistReducer(persistConfig, reducers)
 
 /**
  * store.subscribe
@@ -72,7 +72,6 @@ export default store
  * 手動實作createStore
  * @param {} reducer 
  * @returns 
- */
 function createYikaiStore(reducer) {
     var list = []
     var state = reducer(undefined, {})   // 初始值
@@ -100,3 +99,4 @@ function createYikaiStore(reducer) {
         getState
     }
 }
+ */

@@ -2,27 +2,29 @@ import React, { useState, useEffect, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import getCinemaListAction from '../redux/actionCreator/CinemaListAction'
 
+import { cinemaActions } from '../redux/slices/CinemaSlice'
+
 export default function Search() {
-    const CinemaListReducer = useSelector(state => state.CinemaListReducer)
+    const cinema = useSelector(state => state.cinema)
     const dispatch = useDispatch()
 
     const [searchText, setSearchText] = useState("")
 
     useEffect(() => {
-        if (CinemaListReducer.list.length === 0) {
-            dispatch(getCinemaListAction())
+        if (cinema.list.length === 0) {
+            dispatch(cinemaActions.changeList(getCinemaListAction()))
         }
         else {
             console.log("Store緩存")
         }
-    }, [CinemaListReducer.list])
+    }, [cinema.list])
 
     const getCinemaList = useMemo(() => {
-        return CinemaListReducer.list.filter(item =>
+        return cinema.list.filter(item =>
             item.name.toUpperCase().includes(searchText.toUpperCase()) ||
             item.desc.toUpperCase().includes(searchText.toUpperCase()) 
         )
-    }, [searchText, CinemaListReducer.list])
+    }, [searchText, cinema.list])
 
     return (
         <div>

@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 function NotFound(props) {
     useEffect(() => {
         console.log(props)
-    }, [[props]])
+    }, [props])
 
     return (
         <div>404 not found</div>

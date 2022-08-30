@@ -7,11 +7,11 @@ import MRouter from './router'
 import './views/css/App.css'
 
 export default function App() {
-    const isShow = useSelector(state => state.TabbarReducer.show)    
+    const tabbar = useSelector(state => state.tabbar)    
 
     return (
         <HashRouter>
-            {isShow && <Tabbar></Tabbar>}
+            {tabbar.show && <Tabbar></Tabbar>}
             <MRouter></MRouter>
         </HashRouter>
     )
