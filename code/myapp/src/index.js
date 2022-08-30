@@ -1,11 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import { Provider } from 'react-redux'
-import { PersistGate } from 'redux-persist/integration/react'
-import { persistStore } from 'redux-persist'
-import store from './06-react-redux/redux/stroe';
-
 /*
 // import App from './01-base/01-class組件'
 // import App from './01-base/02-function組件'
@@ -29,8 +24,7 @@ import store from './06-react-redux/redux/stroe';
 // import App from './01-base/20-受控'
 // import App from './01-base/21-受控Cinema'
 // import App from './01-base/22-受控todoList'
-*/
-/*
+
 // import App from './02-advanced/01-子傳父'
 // import App from './02-advanced/02-非受控賣座選項卡'
 // import App from './02-advanced/03-受控賣座選項卡'
@@ -58,8 +52,7 @@ import store from './06-react-redux/redux/stroe';
 // import App from './02-advanced/25-swiper-同步'
 // import App from './02-advanced/26-swiper-異步'
 // import App from './02-advanced/27-swiper-組件'
-*/
-/*
+
 // import App from './03-hooks/01-useState'
 // import App from './03-hooks/02-todolist'
 // import App from './03-hooks/03-useEffect'
@@ -76,13 +69,15 @@ import store from './06-react-redux/redux/stroe';
 // import App from './03-hooks/14-useReducer2'
 // import App from './03-hooks/15-useReducer3'
 // import App from './03-hooks/16-自定義hooks'
-*/
-/*
+
 // import App from './04-router/App'
-*/
-/*
-import App from './05-redux/App'
-*/
+
+// import App from './05-redux/App'
+
+import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react'
+import { persistStore } from 'redux-persist'
+import store from './06-react-redux/redux/stroe';
 import App from './06-react-redux/App'
 
 let persistor = persistStore(store)
@@ -96,5 +91,26 @@ root.render(
                 <App />
             </PersistGate>
         </Provider>
+    // </React.StrictMode>
+);
+
+*/
+
+import 'antd/dist/antd.css'
+
+// import App from './07-antd/01-antd引入'
+// import App from './07-antd/02-柵格系統'
+// import App from './07-antd/03-layout'
+// import App from './07-antd/04-下拉選單'
+// import App from './07-antd/05-進度條'
+// import App from './07-antd/06-輪播'
+// import App from './07-antd/07-table'
+// import App from './07-antd/08-tree'
+import App from './07-antd/09-Modal'
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    // <React.StrictMode>
+    <App />
     // </React.StrictMode>
 );
