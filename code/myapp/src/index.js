@@ -120,8 +120,6 @@ root.render(
     // </React.StrictMode>
 );
 
-*/
-
 // =================================================================
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
@@ -140,5 +138,17 @@ root.render(
                 <App />
             </PersistGate>
         </Provider>
+    // </React.StrictMode>
+);
+
+*/
+
+// =================================================================
+import App from './09-immutable/01-base'
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    // <React.StrictMode>
+    <App />
     // </React.StrictMode>
 );
