@@ -44,10 +44,11 @@ export default function Tabbar() {
                     <NavLink to="/center" className={({ isActive }) => isActive ? style.active : ''}>我的</NavLink>
                 </li>
             </ul> */}
-            <TabBar onChange={(value) => {
-                console.log(value)
-                navigate(value)
-            }} activeKey={"/" + location.pathname.split("/")[1]}>
+            <TabBar style={{ borderTop: "1px #eee solid" }}
+                onChange={(value) => {
+                    console.log(value)
+                    navigate(value)
+                }} activeKey={"/" + location.pathname.split("/")[1]}>
                 {tabs.map(item => (
                     <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
                 ))}

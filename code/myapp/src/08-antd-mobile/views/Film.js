@@ -22,7 +22,7 @@ export default function Films() {
 
     return (
         <div>
-            <div style={{ height: "222px", background: "yellow" }}>
+            <div>
                 <Swiper autoplay={true} loop={true}>
                     {
                         list.map(item =>
