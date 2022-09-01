@@ -144,7 +144,10 @@ root.render(
 */
 
 // =================================================================
-import App from './09-immutable/01-base'
+// import App from './09-immutable/01-base'
+// import App from './09-immutable/02-map'
+// import App from './09-immutable/03-map2'
+import App from './09-immutable/04-list'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
