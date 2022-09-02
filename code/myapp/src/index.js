@@ -149,7 +149,8 @@ root.render(
 // import App from './09-immutable/03-map2'
 // import App from './09-immutable/04-list'
 // import App from './09-immutable/05-個人信息修改'
-import App from './09-immutable/06-個人信息修改2'
+// import App from './09-immutable/06-個人信息修改2'
+import App from './09-immutable/redux/App'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
