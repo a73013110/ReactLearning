@@ -14,10 +14,12 @@ export default function Detail(props) {
 
     useEffect(() => {
         console.log("Creage")
-        store.isTabbarShow = false;
+        // store.isTabbarShow = false;
+        store.setTabbarShow(false);
         return () => {
             console.log("Destory")
-            store.isTabbarShow = true;
+            // store.isTabbarShow = true;
+            store.setTabbarShow(true);
         }
     }, [])
 
