@@ -7,7 +7,9 @@ import reportWebVitals from './reportWebVitals';
 // import './01-ts基礎/01-基本類型'
 // import './01-ts基礎/02-陣列'
 // import './01-ts基礎/03-物件'
-import './01-ts基礎/04-函數'
+// import './01-ts基礎/04-函數'
+// import './01-ts基礎/05-類別'
+import './01-ts基礎/06-類別、介面'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
