@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "myappts"
+		},
+		{
+			"path": "myapp"
+		}
+	],
+	"settings": {
+		"typescript.tsdk": "myappts\\node_modules\\typescript\\lib"
+	}
+}
