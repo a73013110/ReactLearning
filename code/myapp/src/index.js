@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-/*
 // =================================================================
 // import App from './01-base/01-class組件'
 // import App from './01-base/02-function組件'
@@ -80,28 +79,28 @@ import ReactDOM from 'react-dom/client';
 // import App from './05-redux/App'
 
 // =================================================================
-import { Provider } from 'react-redux'
-import { PersistGate } from 'redux-persist/integration/react'
-import { persistStore } from 'redux-persist'
-import store from './06-react-redux/redux/stroe';
-import App from './06-react-redux/App'
+// import { Provider } from 'react-redux'
+// import { PersistGate } from 'redux-persist/integration/react'
+// import { persistStore } from 'redux-persist'
+// import store from './06-react-redux/redux/stroe';
+// import App from './06-react-redux/App'
 
-let persistor = persistStore(store)
+// let persistor = persistStore(store)
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-    // 注意React.StrictMode會讓子元件Create=>Destroy=>Create，換句話說會創建2次...
-    // <React.StrictMode>
-        <Provider store={store}>
-            <PersistGate loading={null} persistor={persistor}>
-                <App />
-            </PersistGate>
-        </Provider>
-    // </React.StrictMode>
-);
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(
+//     // 注意React.StrictMode會讓子元件Create=>Destroy=>Create，換句話說會創建2次...
+//     // <React.StrictMode>
+//         <Provider store={store}>
+//             <PersistGate loading={null} persistor={persistor}>
+//                 <App />
+//             </PersistGate>
+//         </Provider>
+//     // </React.StrictMode>
+// );
 
-// =================================================================
-import 'antd/dist/antd.css'
+// // =================================================================
+// import 'antd/dist/antd.css'
 
 // import App from './07-antd/01-antd引入'
 // import App from './07-antd/02-柵格系統'
@@ -111,16 +110,16 @@ import 'antd/dist/antd.css'
 // import App from './07-antd/06-輪播'
 // import App from './07-antd/07-table'
 // import App from './07-antd/08-tree'
-import App from './07-antd/09-Modal'
+// import App from './07-antd/09-Modal'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-    // <React.StrictMode>
-    <App />
-    // </React.StrictMode>
-);
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(
+//     // <React.StrictMode>
+//     <App />
+//     // </React.StrictMode>
+// );
 
-// =================================================================
+// // =================================================================
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 import { persistStore } from 'redux-persist'
@@ -141,8 +140,6 @@ root.render(
     // </React.StrictMode>
 );
 
-*/
-
 // =================================================================
 // import App from './09-immutable/01-base'
 // import App from './09-immutable/02-map'
@@ -152,11 +149,11 @@ root.render(
 // import App from './09-immutable/06-個人信息修改2'
 // import App from './09-immutable/redux/App'
 // import App from './10-mobx/App'
-import App from './10-mobx/04-router/App'
+// import App from './10-mobx/04-router/App'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-    // <React.StrictMode>
-    <App />
-    // </React.StrictMode>
-);
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(
+//     // <React.StrictMode>
+//     <App />
+//     // </React.StrictMode>
+// );
