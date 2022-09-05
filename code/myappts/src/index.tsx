@@ -21,16 +21,35 @@ import reportWebVitals from './reportWebVitals';
 // import App from './03-function+ts/03-props'
 // import App from './03-function+ts/04-抽屜'
 
-import App from './04-router/App'
+// import App from './04-router/App'
+
+// const root = ReactDOM.createRoot(
+//   document.getElementById('root') as HTMLElement
+// );
+// root.render(
+//   // <React.StrictMode>
+//     <App />
+//   // </React.StrictMode>
+// );
+
+//---------------------------------------------------------------------------------
+
+import App from './05-react-redux/App'
+import { Provider } from 'react-redux'
+import store from './05-react-redux/redux/store';
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+	document.getElementById('root') as HTMLElement
 );
 root.render(
-  // <React.StrictMode>
-    <App />
-  // </React.StrictMode>
+	// <React.StrictMode>
+	<Provider store={store}>
+		<App />
+	</Provider>
+	// </React.StrictMode>
 );
+
+//---------------------------------------------------------------------------------
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
