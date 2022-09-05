@@ -19,7 +19,9 @@ import reportWebVitals from './reportWebVitals';
 // import App from './03-function+ts/01-state'
 // import App from './03-function+ts/02-todo'
 // import App from './03-function+ts/03-props'
-import App from './03-function+ts/04-抽屜'
+// import App from './03-function+ts/04-抽屜'
+
+import App from './04-router/App'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
