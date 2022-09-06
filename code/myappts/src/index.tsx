@@ -34,9 +34,26 @@ import reportWebVitals from './reportWebVitals';
 
 //---------------------------------------------------------------------------------
 
-import App from './05-react-redux/App'
+// import App from './05-react-redux/App'
+// import { Provider } from 'react-redux'
+// import store from './05-react-redux/redux/store';
+
+// const root = ReactDOM.createRoot(
+// 	document.getElementById('root') as HTMLElement
+// );
+// root.render(
+// 	// <React.StrictMode>
+// 	<Provider store={store}>
+// 		<App />
+// 	</Provider>
+// 	// </React.StrictMode>
+// );
+
+//---------------------------------------------------------------------------------
+
+import App from './06-antdmobile/App'
 import { Provider } from 'react-redux'
-import store from './05-react-redux/redux/store';
+import store from './06-antdmobile/redux/store';
 
 const root = ReactDOM.createRoot(
 	document.getElementById('root') as HTMLElement
