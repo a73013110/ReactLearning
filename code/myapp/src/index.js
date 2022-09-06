@@ -120,25 +120,25 @@ import ReactDOM from 'react-dom/client';
 // );
 
 // // =================================================================
-import { Provider } from 'react-redux'
-import { PersistGate } from 'redux-persist/integration/react'
-import { persistStore } from 'redux-persist'
-import store from './08-antd-mobile/redux/stroe';
-import App from './08-antd-mobile/App'
+// import { Provider } from 'react-redux'
+// import { PersistGate } from 'redux-persist/integration/react'
+// import { persistStore } from 'redux-persist'
+// import store from './08-antd-mobile/redux/stroe';
+// import App from './08-antd-mobile/App'
 
-let persistor = persistStore(store)
+// let persistor = persistStore(store)
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-    // 注意React.StrictMode會讓子元件Create=>Destroy=>Create，換句話說會創建2次...
-    // <React.StrictMode>
-        <Provider store={store}>
-            <PersistGate loading={null} persistor={persistor}>
-                <App />
-            </PersistGate>
-        </Provider>
-    // </React.StrictMode>
-);
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(
+//     // 注意React.StrictMode會讓子元件Create=>Destroy=>Create，換句話說會創建2次...
+//     // <React.StrictMode>
+//         <Provider store={store}>
+//             <PersistGate loading={null} persistor={persistor}>
+//                 <App />
+//             </PersistGate>
+//         </Provider>
+//     // </React.StrictMode>
+// );
 
 // =================================================================
 // import App from './09-immutable/01-base'
@@ -150,10 +150,15 @@ root.render(
 // import App from './09-immutable/redux/App'
 // import App from './10-mobx/App'
 // import App from './10-mobx/04-router/App'
+// import App from './11-styled-components/App'
+// import App from './11-styled-components/01-passProps'
+// import App from './11-styled-components/02-樣式化組件'
+// import App from './11-styled-components/03-樣式擴展'
+import App from './11-styled-components/04-動畫'
 
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(
-//     // <React.StrictMode>
-//     <App />
-//     // </React.StrictMode>
-// );
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    // <React.StrictMode>
+    <App />
+    // </React.StrictMode>
+);
