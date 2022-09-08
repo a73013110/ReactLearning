@@ -1,6 +1,7 @@
 import ShallowRender from 'react-test-renderer/shallow'
 import App from '../App'
-import ReactTestUtil from 'react-dom/test-utils'
+import ReactTestUtil, { act } from 'react-dom/test-utils'
+import { render } from '@testing-library/react'
 
 describe("react-test-render", function () {
     it("app的名字是yikai-todolist", function () {
@@ -12,15 +13,19 @@ describe("react-test-render", function () {
     })
 
     it("刪除功能", function () {
-        const app = ReactTestUtil.renderIntoDocument(<App />)
-        let todoItems = ReactTestUtil.scryRenderedDOMComponentsWithTag(app, "li")
-        console.log(todoItems)
+        const { container } = render(<App />)
+        const todoItems =container.querySelectorAll("li")
+        // console.log(todoItems.length)
 
-        // let deleteButton = todoItems[0].querySelector("button")
-        // ReactTestUtil.Simulate.click(deleteButton)
+        let deleteButton = todoItems[0].querySelector("button")
+        // 任何改變狀態的動作，需要放置於act中
+        act(() => {
+            deleteButton.click()
+        })
 
-        // let todoItemsAfterClick = ReactTestUtil.scryRenderedDOMComponentsWithTag(app, "li")
-        
-        // expect(todoItems.length - 1).toBe(todoItemsAfterClick.length)
+        const todoItemsAfterClick = container.querySelectorAll("li")
+        // console.log(todoItemsAfterClick.length)
+
+        expect(todoItems.length - 1).toBe(todoItemsAfterClick.length)
     })
 })
