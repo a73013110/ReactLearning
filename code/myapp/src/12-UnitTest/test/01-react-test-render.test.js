@@ -26,7 +26,7 @@ describe("react-test-render", function () {
         const todoItemsAfterClick = container.querySelectorAll("li")
         // console.log(todoItemsAfterClick.length)
 
-        expect(todoItems.length - 1).toBe(todoItemsAfterClick.length)
+        expect(todoItemsAfterClick.length).toBe(todoItems.length - 1)
     })
 
     it("新增功能", function () {
@@ -45,6 +45,6 @@ describe("react-test-render", function () {
         const todoItemsAfterClick = container.querySelectorAll("li")
         // console.log(todoItemsAfterClick.length)
 
-        expect(todoItems.length + 1).toBe(todoItemsAfterClick.length)
+        expect(todoItemsAfterClick.length).toBe(todoItems.length + 1)
     })
 })
