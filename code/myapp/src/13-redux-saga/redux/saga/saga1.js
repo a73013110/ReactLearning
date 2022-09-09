@@ -1,12 +1,13 @@
-import { take, fork, put, call } from 'redux-saga/effects'
+import { take, fork, put, call, takeEvery } from 'redux-saga/effects'
 
 function* watchSaga1() {
-    while (true) {
-        // take 監聽組件發來的action
-        yield take("slice/getList1")
-        // fork 同步執行異步處理函數
-        yield fork(getList1)
-    }
+    // while (true) {
+    //     // take 監聽組件發來的action
+    //     yield take("slice/getList1")
+    //     // fork 同步執行異步處理函數
+    //     yield fork(getList1)
+    // }
+    yield takeEvery("slice/getList1", getList1)
 }
 
 function* getList1() {
@@ -30,3 +31,4 @@ function getListActoin1() {
 }
 
 export default watchSaga1
+export { getList1 }
