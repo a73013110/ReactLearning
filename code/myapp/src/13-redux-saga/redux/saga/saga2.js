@@ -10,21 +10,32 @@ function* watchSaga2() {
 }
 
 function* getList2() {
-    let res = yield call(getListActoin2)
-    console.log("getList2", res)
+    let res1 = yield call(getListActoin2_1)
+    console.log("getList2_1", res1)
+    let res2 = yield call(getListActoin2_2, res1)
+    console.log("getList2_2", res2)
 
     // yield sliceAction.changeList(res)
     yield put({
         type: "slice/changeList2",
-        payload: res
+        payload: res2
     })
 }
 
 // 模擬Promise取資料方法
-function getListActoin2() {
+function getListActoin2_1() {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(["4444", "5555", "6666"])
+        }, 2000);
+    })
+}
+
+// 模擬Promise取資料方法
+function getListActoin2_2(data) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve([...data, "7777", "8888", "9999"])
         }, 2000);
     })
 }
