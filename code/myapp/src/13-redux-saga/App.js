@@ -15,12 +15,23 @@ export default function App() {
                 if (slice.list1.length === 0) {
                     console.log("Dispatch")
                     dispatch({
-                        type: "slice/getList"
+                        type: "slice/getList1"
                     })
                 } else {
                     console.log("緩存", slice.list1)
                 }
-            }}>Click-ajax-異步緩存</button>
+            }}>Click-ajax-異步緩存111</button>
+
+            <button onClick={() => {
+                if (slice.list2.length === 0) {
+                    console.log("Dispatch")
+                    dispatch({
+                        type: "slice/getList2"
+                    })
+                } else {
+                    console.log("緩存", slice.list2)
+                }
+            }}>Click-ajax-異步緩存222</button>
         </div>
     )
 }
