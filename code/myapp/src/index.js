@@ -168,7 +168,8 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux'
 import store from './13-redux-saga/redux/store'
 
-import App from './13-redux-saga/App'
+// import App from './13-redux-saga/App'
+import App from './13-redux-saga/maizuo/App'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
