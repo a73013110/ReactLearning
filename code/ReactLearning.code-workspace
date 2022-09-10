@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "myapp"
+		},
+		{
+			"path": "server"
 		}
 	],
 	"settings": {
