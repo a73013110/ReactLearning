@@ -190,7 +190,8 @@ import ReactDOM from 'react-dom/client';
 // import App from './15-graphql/02-query-參數'
 // import App from './15-graphql/03-mutation'
 // import App from './15-graphql/04-mutation-update'
-import App from './15-graphql/05-mutation-delete'
+// import App from './15-graphql/05-mutation-delete'
+import App from './15-graphql/App'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
