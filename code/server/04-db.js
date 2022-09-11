@@ -107,5 +107,7 @@ app.use("/graphql", graphqlHttp({
     graphiql: true
 }))
 
+app.use(express.static("public"))
+
 app.listen(3000)
 
