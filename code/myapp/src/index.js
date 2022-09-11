@@ -185,7 +185,9 @@ import ReactDOM from 'react-dom/client';
 // import App from './14-react-補充/LazyLoading/App'
 // import App from './14-react-補充/forwardRef/App'
 // import App from './14-react-補充/forwardRef/App_forwardRef'
-import App from './14-react-補充/memo/App'
+// import App from './14-react-補充/memo/App'
+// import App from './15-graphql/01-query'
+import App from './15-graphql/02-query-參數'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

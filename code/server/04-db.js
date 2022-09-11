@@ -32,6 +32,7 @@ var Schema = buildSchema(`
 
     type Query {
         getNowPlayingList: [Film],
+        getNowPlaying(id: String!): [Film],
     }
 
     type Mutation {
@@ -54,6 +55,18 @@ const root = {
     */
     getNowPlayingList() {
         return FilmModel.find()
+    },
+    /*
+    {
+        getNowPlaying(id: "") {
+            id,
+            name,
+            price
+        }
+    }
+    */
+    getNowPlaying({ id }) {
+        return FilmModel.find({ _id: id })
     },
     /*
     mutation {
