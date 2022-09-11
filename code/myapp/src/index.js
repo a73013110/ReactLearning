@@ -187,7 +187,10 @@ import ReactDOM from 'react-dom/client';
 // import App from './14-react-補充/forwardRef/App_forwardRef'
 // import App from './14-react-補充/memo/App'
 // import App from './15-graphql/01-query'
-import App from './15-graphql/02-query-參數'
+// import App from './15-graphql/02-query-參數'
+// import App from './15-graphql/03-mutation'
+// import App from './15-graphql/04-mutation-update'
+import App from './15-graphql/05-mutation-delete'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
