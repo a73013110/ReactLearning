@@ -4,10 +4,20 @@ const graphqlHttp = require("express-graphql")
 
 // --------------------------------資料庫連接--------------------------------
 var mongoose = require("mongoose")
-mongoose.connect("mongodb://localhost:27017/maizuo", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
+// mongoose.connect("mongodb://localhost:27017/maizuo", {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// })
+try {
+    // Connect to the MongoDB cluster
+    mongoose.connect(
+        "mongodb+srv://ReactLearning:<PASSWORD>@yikaidercluster.oufncxp.mongodb.net/maizuo",
+        { useNewUrlParser: true, useUnifiedTopology: true },
+        () => console.log(" Mongoose is connected")
+    );
+} catch (e) {
+    console.log("could not connect");
+}
 var FilmModel = mongoose.model("film", new mongoose.Schema({
     name: String,
     poster: String,
