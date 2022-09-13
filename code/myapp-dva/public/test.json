@@ -1,0 +1,457 @@
+{
+    "status": 0,
+    "data": {
+        "films": [{
+            "filmId": 5386,
+            "name": "我的姐姐",
+            "poster": "https://pic.maizuo.com/usr/movie/75c67d58c49822d782561cdcca65189c.jpg",
+            "actors": [{
+                "name": "殷若昕",
+                "role": "導演",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/5c9574f920a21bfea0a35b0557c6dd43.jpg"
+            }, {
+                "name": "張子楓",
+                "role": "安然",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/2bddc157bd0faf6029bbae14ba8d92fc.jpg"
+            }, {
+                "name": "肖央",
+                "role": "舅舅",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/3ce5eeb8f056391d655c2d0a6ec35675.jpg"
+            }, {
+                "name": "金遙源",
+                "role": "弟弟",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/ecda1a57d366c843f28dc68293d4ae63.jpg"
+            }, {
+                "name": "王聖迪",
+                "role": "童年安然",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/a7eb39e0b652da91c4e3a1c1c7a17a85.jpg"
+            }],
+            "director": "殷若昕",
+            "category": "劇情|家庭",
+            "synopsis": "電影講述失去父母的姐姐在麵對追求個人獨立生活還是撫養弟弟的問題上展開的一段親情故事。",
+            "filmType": {
+                "name": "2D",
+                "value": 1
+            },
+            "nation": "中國大陸",
+            "language": "",
+            "videoId": "",
+            "premiereAt": 1617321600,
+            "timeType": 3,
+            "runtime": 127,
+            "grade": "7",
+            "item": {
+                "name": "2D",
+                "type": 1
+            },
+            "isPresale": true,
+            "isSale": false
+        }, {
+            "filmId": 5391,
+            "name": "哥斯拉大戰金剛",
+            "poster": "https://pic.maizuo.com/usr/movie/b624c348ee645c004b1e349dbe162ec9.jpg",
+            "actors": [{
+                "name": "亞當·溫加德",
+                "role": "導演",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/885b9e96f320408abfc9d172588e753a.jpg"
+            }, {
+                "name": "亞曆山大·斯卡斯加德",
+                "role": "Nathan Lind",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/8e6b49c18a8311d8665bf013ea1aa73a.jpg"
+            }, {
+                "name": "米莉·波比·佈朗",
+                "role": "Madison Russell",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/c05f1e2481e04f737cd91f4d03c9ff85.jpg"
+            }, {
+                "name": "麗貝卡·豪爾",
+                "role": "Ilene Andrews",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/290e19d60a61ecc877bcd20d1969c599.jpg"
+            }, {
+                "name": "佈萊恩·泰裏·亨利",
+                "role": "Bernie Hayes",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/323a79599476310db5bde745910857e4.jpg"
+            }],
+            "director": "亞當·溫加德",
+            "category": "動作|冒險",
+            "synopsis": "影片中，這兩位宛如神衹一般強大的對手於一場壯觀的戰爭中相遇，彼時世界命運正懸於一線。為了找到真正的家園，金剛與他的保護者們踏上了一次艱難的旅程。與他們一道前行的還有一個年輕的孤兒女孩——吉雅，這個女孩與金剛之間存在著一種獨特而強大的緊密聯係。但意想不到的是，他們在前行的航道上與憤怒的哥斯拉狹路相逢，也由此在全球引起了一係列破壞。一股無形的力量造成了這兩隻巨獸之間的巨大沖突，深藏在地心深處的奧秘也由此揭開。",
+            "filmType": {
+                "name": "2D",
+                "value": 1
+            },
+            "nation": "美國",
+            "language": "",
+            "videoId": "",
+            "premiereAt": 1616716800,
+            "timeType": 3,
+            "runtime": 113,
+            "grade": "7.2",
+            "item": {
+                "name": "2D",
+                "type": 1
+            },
+            "isPresale": true,
+            "isSale": false
+        }, {
+            "filmId": 4809,
+            "name": "超級的我",
+            "poster": "https://pic.maizuo.com/usr/movie/8b0a1b2f06f1f14a9b31ca9b3f487cbf.jpg",
+            "actors": [{
+                "name": "張翀",
+                "role": "導演",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/48fae2a2621c399b8b591935707e7431.jpg"
+            }, {
+                "name": "王大陸",
+                "role": "桑榆",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/cd3048a1ca8813e8650c24e702fe39f4.jpg"
+            }, {
+                "name": "宋佳",
+                "role": "花兒",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/31ed926ebf31343806b3febf0dfe16c8.jpg"
+            }, {
+                "name": "曹炳琨",
+                "role": "三哥",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/cd325280c19f862d5dd813185b106e34.jpg"
+            }, {
+                "name": "吳剛",
+                "role": "強哥",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/ef2b37015091a9effef8022420bae582.jpg"
+            }],
+            "director": "張翀",
+            "category": "奇幻|冒險",
+            "synopsis": "如果睡覺能賺錢，如果做夢能緻富，但是要付出代價，你加入嗎？18線小編劇桑榆（王大陸 飾）原本生活睏頓拮據，但一夜之間卻擁有了夢中取物的神奇能力，通過將夢中的寶物變現，潦倒落魄的他成為人生贏家，甚至一擲仟金追求到暗戀多年的花兒（宋佳 飾），然而在夢中快意掠取的桑榆卻逐漸發現，這場躺贏美夢竟將他的生活推嚮了失控的邊緣……",
+            "filmType": {
+                "name": "2D",
+                "value": 1
+            },
+            "nation": "中國大陸",
+            "language": "",
+            "videoId": "XNDE5Mzk5NzIyNA==",
+            "premiereAt": 1617926400,
+            "timeType": 3,
+            "runtime": 103,
+            "grade": "7.8",
+            "item": {
+                "name": "2D",
+                "type": 1
+            },
+            "isPresale": true,
+            "isSale": false
+        }, {
+            "filmId": 5407,
+            "name": "工作細胞：細胞大作戰",
+            "poster": "https://pic.maizuo.com/usr/movie/76cdacad497e4e018063cd6e6d130183.jpg",
+            "actors": [{
+                "name": "小倉宏文",
+                "role": "導演",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/94d61746865c06af84d210cb262ea7b6.jpg"
+            }, {
+                "name": "花澤香菜",
+                "role": "紅細胞",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/ea4d79a56f420c3117fbe19f7bab9d7b.jpg"
+            }, {
+                "name": "前野智昭",
+                "role": "白細胞（中性粒細胞）",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/6632ed12f6e6c32a2592c1e67c323e2b.jpg"
+            }, {
+                "name": "小野大輔",
+                "role": "殺傷性T細胞",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/85f86fbee04986a564c2b50bdbff9270.jpg"
+            }, {
+                "name": "井上喜久子",
+                "role": "巨噬細胞",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/69cd52285015b885953c9962523ae99f.jpg"
+            }],
+            "director": "小倉宏文",
+            "category": "動畫|喜劇|動作",
+            "synopsis": "這是人類的體內。許許多多的細胞勤奮工作的世界。某日白細胞（中性粒細胞）與紅細胞，遇見了收留迷路乳酸菌的一般細胞。為了將乳酸菌護送至同伴身邊，白細胞(中性粒細胞)與一般細胞嚮腸道出發。然而他們卻與來者不善的最強敵人重逢。「我和你們到底誰才是正義的一方，趁這次弄個清楚吧」再次現身的癌細胞。以及遭到壞菌破壞的腸內環境。體內遭遇前所未有的大危機！束手就擒吧 癌細胞！為了守護這個世界，白細胞們（中性粒細胞）嚮賭上世界命運的大戰發起挑戰。",
+            "filmType": {
+                "name": "2D",
+                "value": 1
+            },
+            "nation": "日本",
+            "language": "",
+            "videoId": "",
+            "premiereAt": 1617926400,
+            "timeType": 3,
+            "runtime": 111,
+            "grade": "7.9",
+            "item": {
+                "name": "2D",
+                "type": 1
+            },
+            "isPresale": true,
+            "isSale": false
+        }, {
+            "filmId": 5357,
+            "name": "第十一回",
+            "poster": "https://pic.maizuo.com/usr/movie/1856a6776dcc5c584d0fa5addfe8b31a.jpg",
+            "actors": [{
+                "name": "陳建斌",
+                "role": "導演",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/1163f4bafab6e8c6a3e61d3232b4a7f6.jpg"
+            }, {
+                "name": "陳建斌",
+                "role": "馬福禮",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/1163f4bafab6e8c6a3e61d3232b4a7f6.jpg"
+            }, {
+                "name": "竇靖童",
+                "role": " 金多多",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/e2c907d39cc34827ed9c0a3bd64f9229.jpg"
+            }, {
+                "name": "周迅",
+                "role": "金財鈴",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/6fb381b4c06fb69405f37e5ec56e3962.jpg"
+            }, {
+                "name": "大鵬",
+                "role": "胡昆汀",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/658eeb558bcaead96e7783e70dc6d79a.jpg"
+            }],
+            "director": "陳建斌",
+            "category": "劇情|喜劇|家庭",
+            "synopsis": "30年前一樁殺人案，被市話劇團拿來改編成舞臺劇，馬福禮（陳建斌 飾）作為殺人案的當事人，舊事重提讓他的生活再起波瀾。馬福禮一邊忙著和話劇團導演胡昆汀（大鵬 飾）糾纏掰理，一邊找律師翻案尋求真相還自己清白，還要忙著調和妻子金財鈴（周迅 飾）和女兒金多多（竇靖童 飾）劍拔弩張的關係，生活給了他多記重錘……時隔多年，馬福禮能否重新翻案？真相到底有幾個？人生如戲，請君入席。",
+            "filmType": {
+                "name": "2D",
+                "value": 1
+            },
+            "nation": "中國大陸",
+            "language": "",
+            "videoId": "",
+            "premiereAt": 1614902400,
+            "timeType": 3,
+            "runtime": 115,
+            "grade": "7.9",
+            "item": {
+                "name": "2D",
+                "type": 1
+            },
+            "isPresale": true,
+            "isSale": false
+        }, {
+            "filmId": 5406,
+            "name": "西遊記之再世妖王",
+            "poster": "https://pic.maizuo.com/usr/movie/5ef4d65ca1412e90d817fad27dd43b8c.jpg",
+            "actors": [{
+                "name": "張磊",
+                "role": "元蒂",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/667c724a99e9b11930d14045b915bd3b.jpg"
+            }, {
+                "name": "蔡海婷",
+                "role": "果子",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/acc7a7fea7c11fadeed4c92651230337.jpg"
+            }, {
+                "name": "王雲飛",
+                "role": "導演",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/147a09cab083f484cc9c16f70f6a19c5.jpg"
+            }, {
+                "name": "邊江",
+                "role": "孫悟空",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/0026bb1df2a92fc4993762d539127996.jpg"
+            }, {
+                "name": "蘇尚卿",
+                "role": "唐僧",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/d6f4f3f7bf4d8b116a33483f6123944a.jpg"
+            }],
+            "director": "王雲飛",
+            "category": "動畫|奇幻|動作",
+            "synopsis": "混沌初開之時，世上的第一隻妖誕生，名元蒂，被奉為妖祖。仟百萬年後，昔日妖王孫悟空被唐僧從五行山下救出，一同前往西天取經。而傳說中的妖祖元蒂這時再次出現，三界岌岌可危。兩代妖王註定終極一戰，但這次孫悟空遇上的，是前所未見的勁敵!",
+            "filmType": {
+                "name": "4D",
+                "value": 13
+            },
+            "nation": "中國大陸",
+            "language": "",
+            "videoId": "",
+            "premiereAt": 1617321600,
+            "timeType": 3,
+            "runtime": 95,
+            "grade": "7.3",
+            "item": {
+                "name": "4D",
+                "type": 13
+            },
+            "isPresale": true,
+            "isSale": false
+        }, {
+            "filmId": 5426,
+            "name": "名偵探柯南：緋色的子彈",
+            "poster": "https://pic.maizuo.com/usr/movie/0e2d1f1b4157eebe8048be8e51226488.jpg",
+            "actors": [{
+                "name": "小山力也",
+                "role": "毛利小五郎",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/d63c79ae907b2adee52557203463b986.jpg"
+            }, {
+                "name": "高山南",
+                "role": "江戶川柯南",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/ea672c1dc28becbf6649789a9f61f3da.jpg"
+            }, {
+                "name": "山崎和佳奈",
+                "role": "毛利蘭",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/c14bd5ece2606acf9ebb438463f9516e.jpg"
+            }, {
+                "name": "永岡智佳",
+                "role": "導演",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/a7f893c1a679c6ee466d3f8be8202734.jpg"
+            }, {
+                "name": "高山南",
+                "role": "演員",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/ea672c1dc28becbf6649789a9f61f3da.jpg"
+            }],
+            "director": "永岡智佳",
+            "category": "動作|動畫|懸疑",
+            "synopsis": "全球最⼤體育盛事WSG即將在東京舉辦開幕式，屆時，融合⽇本先進技術打造的最⾼時速可達1000km的 “真空超電導磁懸浮”也即將通車。在這個萬衆矚⽬的關頭，匯集WSG知名贊助商的酒會現場遇到了突 發事件，知名企業的⾼官接連遭到綁架，列車啓動儀式現場也出現了意外。根據柯南的推理，本次事件也 許與⼗五年前在美國波⼠頓發⽣的WSG綁架事件有關。這真的是偶然嗎？在各國遊客聚集的⽇本到底會發⽣什麼樣的事件？真空超導磁懸浮啓動之時，“危險⼀  家⼈”終於集結！",
+            "filmType": {
+                "name": "2D",
+                "value": 1
+            },
+            "nation": "日本",
+            "language": "",
+            "videoId": "",
+            "premiereAt": 1618617600,
+            "timeType": 3,
+            "runtime": 112,
+            "item": {
+                "name": "2D",
+                "type": 1
+            },
+            "isPresale": true,
+            "isSale": false
+        }, {
+            "filmId": 5382,
+            "name": "阿凡達",
+            "poster": "https://pic.maizuo.com/usr/movie/ab016b8e41bdefb2ec243b7b63b105eb.jpg",
+            "actors": [{
+                "name": "詹姆斯·卡梅隆",
+                "role": "導演",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/5b3dc4edc3f8e6b9349e675c4a4f1f36.jpg"
+            }, {
+                "name": "薩姆·沃辛頓",
+                "role": "傑克·薩利 Jake Sully",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/07cdf5caf00077f1a7ac89f4ee751ed7.jpg"
+            }, {
+                "name": "佐伊·索爾達娜",
+                "role": "涅提妮 Neytiri",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/6dc7419536014674d57e64aacd08e4f1.jpg"
+            }, {
+                "name": "米歇爾·羅德裏格茲",
+                "role": "楚蒂·查肯 Trudy Chacon",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/79b58ac3a0907d4e92a9a60ab80445bc.jpg"
+            }, {
+                "name": "西格妮·韋弗",
+                "role": "格蕾絲博士 Dr. Grace Augustine",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/0cc01ad45e1548dfb35229973462b14e.jpg"
+            }],
+            "director": "詹姆斯·卡梅隆",
+            "category": "動作|科幻|冒險",
+            "synopsis": "戰鬥中負傷而下身癱瘓的前海軍戰士傑克·薩利（薩姆·沃辛頓 飾）決定替死去的同胞哥哥到潘多拉星控操縱格蕾絲博士（西格妮·韋弗 飾）用人類基因與當地納美部族基因結合創造出的“阿凡達“混血生物。”傑克的目的是打入納美部落，外交說服他們自願離開世代居住的家園，從而SecFor公司可砍伐殆盡該地區的原始森林，開採地下昂貴的“不可得”礦。在探索潘多拉星的過程中，傑克遇到了納美部落的公主娜蒂瑞（佐伊·索爾達娜飾），嚮她學習了納美人的生存技能與對待自然的態度。與此同時，SecFor公司的經理和軍方代錶上校邁爾斯（史蒂芬·朗 飾）逐漸喪失耐心，決定訴諸武力驅趕納美人。",
+            "filmType": {
+                "name": "3D",
+                "value": 2
+            },
+            "nation": "美國,英國",
+            "language": "",
+            "videoId": "",
+            "premiereAt": 1615507200,
+            "timeType": 3,
+            "runtime": 162,
+            "grade": "7",
+            "item": {
+                "name": "3D",
+                "type": 2
+            },
+            "isPresale": true,
+            "isSale": false
+        }, {
+            "filmId": 5378,
+            "name": "波斯語課",
+            "poster": "https://pic.maizuo.com/usr/movie/3be1740bd63b5d0c6edb2ec6a5723e07.jpg",
+            "actors": [{
+                "name": "瓦迪姆·佩爾曼",
+                "role": "導演",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/ce502f22d5702b5238f070d13b6eeffc.jpg"
+            }, {
+                "name": "納威爾·佩雷茲·畢斯卡亞特",
+                "role": "Gilles",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/f1b739172cc8d638856d39f917eb5987.jpg"
+            }, {
+                "name": "拉斯·艾丁格",
+                "role": "Klaus Koch",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/df5e50e17c0ef9cb0e917eba4efb34f4.jpg"
+            }, {
+                "name": "尼克·邁瑞萊格倫",
+                "role": "演員",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/650b882ab9f375724242e0515b659259.jpg"
+            }, {
+                "name": "約納斯·奈伊",
+                "role": "Max",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/9c78351880ee62daf13603dd39728814.jpg"
+            }],
+            "director": "瓦迪姆·佩爾曼",
+            "category": "劇情",
+            "synopsis": "二戰期間，猶太人小卷在集中營謊稱自己是波斯人保命，被一位德國軍官看中要求教自己波斯語。對波斯語完全不懂的小卷隻能憑空編出一門語言，他開始用集中營中關押的猶太人的名字作為詞根，編造出上仟個“波斯語”單詞，軍官在殘暴的環境中對小卷竟有了依賴，並開始袒護他，不料集中營中來了一個真正的波斯人……",
+            "filmType": {
+                "name": "2D",
+                "value": 1
+            },
+            "nation": "俄羅斯,德國,白俄羅斯",
+            "language": "",
+            "videoId": "",
+            "premiereAt": 1616112000,
+            "timeType": 3,
+            "runtime": 127,
+            "grade": "7.2",
+            "item": {
+                "name": "2D",
+                "type": 1
+            },
+            "isPresale": true,
+            "isSale": false
+        }, {
+            "filmId": 5335,
+            "name": "你好，李煥英",
+            "poster": "https://pic.maizuo.com/usr/movie/3f97c0ef0eca443b9307fad1c05c188e.jpg",
+            "actors": [{
+                "name": "賈玲",
+                "role": "導演",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/577c7d72a1908638a805b4be88aeb791.jpg"
+            }, {
+                "name": "賈玲",
+                "role": "賈曉玲",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/577c7d72a1908638a805b4be88aeb791.jpg"
+            }, {
+                "name": "張小斐",
+                "role": "李煥英",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/8e7578d4cae429675760aa74f5cc3da9.jpg"
+            }, {
+                "name": "沈騰",
+                "role": "沈光林",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/98c43da4b43bcf161d5b9c905253c016.jpg"
+            }, {
+                "name": "陳赫",
+                "role": "演員",
+                "avatarAddress": "https://pic.maizuo.com/usr/movie/4601fb466d358df29886c566a76808f8.jpg"
+            }],
+            "director": "賈玲",
+            "category": "喜劇|劇情",
+            "synopsis": "2001年的某一天，剛剛考上大學的賈曉玲（賈玲 飾）經曆了人生中的一次大起大落。一心想要成為母親驕傲的她卻因母親突遭嚴重意外，而悲痛萬分。在賈曉玲情緒崩潰的狀態下，竟意外的回到了 1981 年，並與年輕的母親李煥英（張小斐 飾）相遇，二人形影不離，宛如閨蜜。與此同時，也結識了一群天真善良的好朋友。曉玲以為來到了這片“廣闊天地”，她可以憑借自己超前的思維，讓母親“大有作為”，但結果卻讓曉玲感到意外......",
+            "filmType": {
+                "name": "2D",
+                "value": 1
+            },
+            "nation": "中國大陸",
+            "language": "",
+            "videoId": "",
+            "premiereAt": 1613088000,
+            "timeType": 3,
+            "runtime": 128,
+            "grade": "7.4",
+            "item": {
+                "name": "2D",
+                "type": 1
+            },
+            "isPresale": true,
+            "isSale": false
+        }],
+        "total": 51
+    },
+    "msg": "ok"
+}

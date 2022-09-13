@@ -2,7 +2,10 @@ import dva from 'dva';
 import './index.css';
 
 // 1. Initialize
-const app = dva();
+const app = dva({
+    // history: require("history").createHashHistory()     // 預設為Hash模式(可以不寫)
+    // history: require("history").createBrowserHistory()  // 不使用Hash模式
+});
 
 // 2. Plugins
 // app.use({});
