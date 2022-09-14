@@ -7,6 +7,10 @@ export default class Center extends Component {
         request("/ajax/comingList?ci=1&limit=10&movieIds=&token=&optimus_uuid=F6812C901C9C11EDABA1E3CF9445FF11557745DA670F42469F6CEA04C65E7E7D&optimus_risk_level=71&optimus_code=10").then(res => {
             console.log(res)
         })
+
+        request("/user").then(res => {
+            console.log(res)
+        })
     }
 
     render() {
