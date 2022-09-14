@@ -1,8 +1,19 @@
+import { connect } from 'dva'
 import React, { Component } from 'react'
 
-export default class Detail extends Component {    
+class Detail extends Component {    
     componentDidMount() {
         console.log(this.props.match.params.myId)
+        // console.log(this.props)
+        this.props.dispatch({
+            type: "maizuo/hide"
+        })
+    }
+
+    componentWillUnmount() {
+        this.props.dispatch({
+            type: "maizuo/show"
+        })
     }
 
     render() {
@@ -11,3 +22,5 @@ export default class Detail extends Component {
         )
     }
 }
+
+export default connect()(Detail)
