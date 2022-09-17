@@ -6,10 +6,10 @@ export default function Nowplaying() {
     const navigate = useNavigate();
     const [list, setList] = useState([]);
 
-    useEffect(() => {
+    useEffect(() => {        
         axios.get("/test.json").then(res => {
-            console.log(res.data.data.films);
-            setList(res.data.data.films);
+            console.log(res.data.data.films)
+            setList(res.data.data.films)
         })
     }, [])
 
