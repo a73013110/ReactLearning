@@ -13,6 +13,7 @@ export default defineConfig({
       ]
     },
     { path: "/cinema", component: "@/pages/Cinema", exact: true },
+    { path: "/city", component: "@/pages/City", exact: true },
     { path: "/detail/:id", component: "@/pages/Detail/$id", exact: true },
     { path: "/center", component: "@/pages/Center", wrappers: ["@/wrappers/Auth"], exact: true },
 
