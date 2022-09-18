@@ -1,18 +1,21 @@
-export default {
+import { defineConfig } from 'umi'
+
+export default defineConfig({
   npmClient: 'npm',
   routes: [
-    { exact: true, path: "/", component: "./index", redirect: "/film" },
-    { 
-      exact: true, path: "/film", component: "./Film",
+    { path: "/", component: "@/pages/index", exact: true, redirect: "/film" },
+    { path: "/login", component: "@/pages/Login", exact: true },
+    {
+      path: "/film", component: "@/pages/Film", exact: true,
       routes: [
-        { exact: true, path: "/film/nowplaying", component: "./Film/Nowplaying" },
-        { exact: true, path: "/film/commingsoon", component: "./Film/Commingsoon" },
-      ]      
+        { path: "/film/nowplaying", component: "@/pages/Film/Nowplaying", exact: true },
+        { path: "/film/commingsoon", component: "@/pages/Film/Commingsoon", exact: true },
+      ]
     },
-    { exact: true, path: "/cinema", component: "./Cinema" },
-    { exact: true, path: "/detail/:id", component: "./Detail/$id" },
-    { exact: true, path: "/center", component: "./Center" },
+    { path: "/cinema", component: "@/pages/Cinema", exact: true },
+    { path: "/detail/:id", component: "@/pages/Detail/$id", exact: true },
+    { path: "/center", component: "@/pages/Center", wrappers: ["@/wrappers/Auth"], exact: true },
 
-    { path: "*", component: "404" }
+    { path: "*", component: "@/pages/404" }
   ]
-};
+});
