@@ -17,5 +17,8 @@ export default defineConfig({
     { path: "/center", component: "@/pages/Center", wrappers: ["@/wrappers/Auth"], exact: true },
 
     { path: "*", component: "@/pages/404" }
-  ]
+  ],
+  mock: {
+    include: ["src/mock/*"]
+  }
 });
