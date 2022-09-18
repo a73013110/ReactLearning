@@ -20,5 +20,11 @@ export default defineConfig({
   ],
   mock: {
     include: ["src/mock/*"]
+  },
+  proxy: {
+    "/ajax": {
+      target: "https://i.maoyan.com",
+      changeOrigin: true
+    }
   }
 });
