@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { IndexBar, List } from 'antd-mobile'
 import { useNavigate } from 'umi'
+import { connect } from 'dva'
 
 interface ICity {
     cityId: number,
@@ -15,10 +16,10 @@ interface IList {
     items: Array<ICity>
 }
 
-export default function City() {
+function City(props: any) {
     const navigate = useNavigate();
     const [list, setList] = useState<Array<IList>>()
-
+    
     useEffect(() => {
         axios({
             url: "https://m.maizuo.com/gateway?k=8415463",
@@ -52,6 +53,13 @@ export default function City() {
 
     const changeCity = (item: ICity) => {
         console.log(item);
+        props.dispatch({
+            type: "city/changeCity",
+            payload: {
+                cityName: item.name,
+                cityId: item.cityId
+            }
+        })
         navigate("/cinema");
     }
 
@@ -76,3 +84,5 @@ export default function City() {
         </div>
     )
 }
+
+export default connect(() => ({}))(City)

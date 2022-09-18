@@ -27,5 +27,10 @@ export default defineConfig({
       target: "https://i.maoyan.com",
       changeOrigin: true
     }
-  }
+  },
+  // https://github.com/umijs/plugins
+  plugins: [
+    "@umijs/plugins/dist/dva"
+  ],
+  dva: {}
 });
