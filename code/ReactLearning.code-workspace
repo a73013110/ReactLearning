@@ -17,6 +17,9 @@
 		},
 		{
 			"path": "newssystem"
+		},
+		{
+			"path": "newssystem_BAK"
 		}
 	],
 	"settings": {
