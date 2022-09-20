@@ -16,10 +16,10 @@
 			"path": "myapp-umi"
 		},
 		{
-			"path": "newssystem"
+			"path": "newssystem_BAK"
 		},
 		{
-			"path": "newssystem_BAK"
+			"path": "newssystem"
 		}
 	],
 	"settings": {
