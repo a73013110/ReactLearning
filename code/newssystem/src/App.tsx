@@ -1,7 +1,9 @@
+import IndexRouter from "./router/IndexRouter";
+
 function App() {
 	return (
 		<div>
-			app
+			<IndexRouter></IndexRouter>
 		</div>
 	);
 }
