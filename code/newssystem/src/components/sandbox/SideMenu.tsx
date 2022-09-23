@@ -1,146 +1,120 @@
 import {
-    UserOutlined
+    UserOutlined,
+    HomeOutlined
 } from '@ant-design/icons';
 import { Layout, Menu, MenuProps } from 'antd';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { ReactElement, useEffect, useMemo, useState } from 'react';
+import { useLocation, useNavigate, useRoutes } from 'react-router-dom';
 import './index.css'
 
 const { Sider } = Layout;
 
-const menuList = [
-    {
-        key: '/home',
-        icon: <UserOutlined />,
-        label: '首頁',
-    },
-    {
-        key: '/user-manage',
-        icon: <UserOutlined />,
-        label: "用戶管理",
-        children: [{
-            key: "/user-manage/list",
-            icon: <UserOutlined />,
-            label: "用戶列表",
-        }]
-    },
-    {
-        key: '/right-manage',
-        icon: <UserOutlined />,
-        label: "權限管理",
-        children: [{
-            key: "/right-manage/role/list",
-            icon: <UserOutlined />,
-            label: "角色列表",
-        },
-        {
-            key: "/right-manage/right/list",
-            icon: <UserOutlined />,
-            label: "權限列表",
-        }]
-    }
-]
-
 interface IMenuItem {
-    id: number,
+    id?: number,
     key: string,
     label: string,
-    pagepermisson: number,
-    grade: number,
-    children: Array<IMenuItem> | undefined,
+    icon: ReactElement,
+    pagepermisson?: number,
+    grade?: number,
+    children?: Array<IMenuItem>,
 }
 
-/*
-const click = (e) => {
-    props.history.push(e.key)
+const iconList: { [key: string]: ReactElement } = {
+    "/home": <HomeOutlined />,
+    "/user-manage": <UserOutlined />,
+    "/user-manage/list": <UserOutlined />,
+    "/right-manage": <UserOutlined />,
+    "/right-manage/role/list": <UserOutlined />,
+    "/right-manage/right/list": <UserOutlined />,
+    "/news-manage": <UserOutlined />,
+    "/news-manage/add": <UserOutlined />,
+    "/news-manage/draft": <UserOutlined />,
+    "/news-manage/category": <UserOutlined />,
+    "/audit-manage": <UserOutlined />,
+    "/audit-manage/audit": <UserOutlined />,
+    "/audit-manage/list": <UserOutlined />,
+    "/publish-manage": <UserOutlined />,
+    "/publish-manage/unpublished": <UserOutlined />,
+    "/publish-manage/published": <UserOutlined />,
+    "/publish-manage/sunset": <UserOutlined />
 }
-const obj = (key, icon, label, children) => {
-    return {
-        key,
-        icon,
-        label,
-        children,
-    }
-}
-const dfs1 = (list) => {
-    const arr = 【】
-        list.map((item) => {
-            if (item.children && item.children.length !== 0) {
-                return arr.push(
-                    obj(item.key, iconlist【item.key】, item.title, dfs1(item.children))
-                )
-            } else {
-                return (
-                    item.pagepermisson &&
-                    arr.push(obj(item.key, iconlist【item.key】, item.title))
-                )
-            }
-        })
-    return arr
-}
----------------------------------------------------------------------------------------------------
-<Menu
-	theme="dark"
-	onClick={click}
-	mode="inline"
-	defaultSelectedKeys={【'1'】}
-	items = { dfs1(list) }
->
-	 {dfs(list)} 
-    </Menu >
-*/
 
 export default function SideMenu() {
     const navigate = useNavigate();
+    const location = useLocation();
     const [menu, setMenu] = useState([])
 
     useEffect(() => {
         axios.get("http://localhost:5000/rights?_embed=children").then(res => {
-            console.log(res.data)
-            setMenu(res.data)
-            console.log(getMenu(res.data))
+            setMenu(res.data);
         })
     }, [])
 
+    /**
+     * 自動展開目前瀏覽功能
+     */
+    const getDefaultOpenKeys = useMemo(() => {
+        let paths = location.pathname.split("/");
+        // 若首個路徑為空，就移除
+        if (paths && paths.length >= 1 && !paths[0].trim()) {
+            paths.splice(0, 1);
+        }
+        // 移除最後一個
+        paths.pop();
+        // 於每個元素前加入/
+        paths = paths.map(x => "/" + x);
+        return paths;
+    }, [])
 
     const onClick: MenuProps["onClick"] = (e) => {
         // console.log("click", e.key);
         navigate(e.key);
     }
 
-    const getMenuItem = (menuItem: IMenuItem) => {
+    /**
+     * 從後端取得的Menu節點，並抽取出Antd需要的欄位
+     * @param menuItem Menu節點
+     * @returns Antd Menu節點
+     */
+    const getMenuItem = (menuItem: IMenuItem): IMenuItem => {
         return {
             key: menuItem.key,
-            icon: "",
+            icon: iconList[menuItem.key],
             label: menuItem.label,
-            children: menuItem.children,
+            children: (menuItem.children && menuItem.children.length !== 0) ? getMenu(menuItem.children) : undefined,
         }
     }
 
-    const getMenu = (list: Array<IMenuItem>): any => {
-        let result: any = [];
-        list.map((item: IMenuItem) => {
-            if (item.children && item.children.length !== 0) {
-                return result.push(getMenuItem(getMenu(item.children)));
-            }
-            else {
-                return item.pagepermisson && result.push(getMenuItem(item));
-            }
+    /**
+     * 取得Menu
+     * @param list 從後端取得的Menu資料，也可能是children的值
+     * @returns Antd Menu的input資料
+     */
+    const getMenu = (list: Array<IMenuItem> | undefined): Array<IMenuItem> => {
+        let result: Array<IMenuItem> = [];
+        list?.map((item: IMenuItem) => {
+            // 篩選出頁面功能
+            return item.pagepermisson && result.push(getMenuItem(item));
         });
         return result;
     }
 
     return (
         <Sider trigger={null} collapsible collapsed={false}>
-            <div className="logo">全球新聞發布管理系統</div>
-            <Menu
-                theme="dark"
-                mode="inline"
-                defaultSelectedKeys={['1']}
-                items={getMenu(menu)}
-                onClick={onClick}
-            />
+            <div style={{ display: "flex", height: "100%", "flexDirection": "column" }}>
+                <div className="logo">全球新聞發布管理系統</div>
+                <div style={{ flex: 1, "overflow": "auto" }}>
+                    <Menu
+                        theme="dark"
+                        mode="inline"
+                        defaultOpenKeys={getDefaultOpenKeys}
+                        selectedKeys={[location.pathname]}
+                        items={getMenu(menu)}
+                        onClick={onClick}
+                    />
+                </div>
+            </div>
         </Sider>
     )
 }
