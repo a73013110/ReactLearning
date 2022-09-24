@@ -1,0 +1,1 @@
+json-server --watch ./src/json/db.json --port 5000
