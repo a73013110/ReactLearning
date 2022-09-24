@@ -176,28 +176,28 @@
   "children": [
     {
       "id": 3,
-      "label": "添加用戶",
+      "title": "添加用戶",
       "rightId": 2,
       "key": "/user-manage/add",
       "grade": 2
     },
     {
       "id": 4,
-      "label": "刪除用戶",
+      "title": "刪除用戶",
       "rightId": 2,
       "key": "/user-manage/delete",
       "grade": 2
     },
     {
       "id": 5,
-      "label": "修改用戶",
+      "title": "修改用戶",
       "rightId": 2,
       "key": "/user-manage/update",
       "grade": 2
     },
     {
       "id": 6,
-      "label": "用戶列表",
+      "title": "用戶列表",
       "rightId": 2,
       "key": "/user-manage/list",
       "pagepermission": 1,
@@ -205,7 +205,7 @@
     },
     {
       "id": 8,
-      "label": "角色列表",
+      "title": "角色列表",
       "rightId": 7,
       "key": "/right-manage/role/list",
       "pagepermission": 1,
@@ -213,7 +213,7 @@
     },
     {
       "id": 9,
-      "label": "權限列表",
+      "title": "權限列表",
       "rightId": 7,
       "key": "/right-manage/right/list",
       "pagepermission": 1,
@@ -221,42 +221,42 @@
     },
     {
       "id": 10,
-      "label": "修改角色",
+      "title": "修改角色",
       "rightId": 7,
       "key": "/right-manage/role/update",
       "grade": 2
     },
     {
       "id": 11,
-      "label": "刪除角色",
+      "title": "刪除角色",
       "rightId": 7,
       "key": "/right-manage/role/delete",
       "grade": 2
     },
     {
       "id": 12,
-      "label": "修改權限",
+      "title": "修改權限",
       "rightId": 7,
       "key": "/right-manage/right/update",
       "grade": 2
     },
     {
       "id": 13,
-      "label": "刪除權限",
+      "title": "刪除權限",
       "rightId": 7,
       "key": "/right-manage/right/delete",
       "grade": 2
     },
     {
       "id": 15,
-      "label": "新聞列表",
+      "title": "新聞列表",
       "rightId": 14,
       "key": "/news-manage/list",
       "grade": 2
     },
     {
       "id": 16,
-      "label": "撰寫新聞",
+      "title": "撰寫新聞",
       "rightId": 14,
       "key": "/news-manage/add",
       "grade": 2,
@@ -264,7 +264,7 @@
     },
     {
       "id": 17,
-      "label": "新聞更新",
+      "title": "新聞更新",
       "rightId": 14,
       "key": "/news-manage/update/:id",
       "grade": 2,
@@ -272,7 +272,7 @@
     },
     {
       "id": 18,
-      "label": "新聞預覽",
+      "title": "新聞預覽",
       "rightId": 14,
       "key": "/news-manage/preview/:id",
       "grade": 2,
@@ -280,7 +280,7 @@
     },
     {
       "id": 19,
-      "label": "草稿箱",
+      "title": "草稿箱",
       "rightId": 14,
       "key": "/news-manage/draft",
       "pagepermission": 1,
@@ -288,7 +288,7 @@
     },
     {
       "id": 20,
-      "label": "新聞分類",
+      "title": "新聞分類",
       "rightId": 14,
       "key": "/news-manage/category",
       "pagepermission": 1,
@@ -296,7 +296,7 @@
     },
     {
       "id": 22,
-      "label": "審核新聞",
+      "title": "審核新聞",
       "rightId": 21,
       "key": "/audit-manage/audit",
       "pagepermission": 1,
@@ -304,7 +304,7 @@
     },
     {
       "id": 23,
-      "label": "審核列表",
+      "title": "審核列表",
       "rightId": 21,
       "key": "/audit-manage/list",
       "pagepermission": 1,
@@ -312,7 +312,7 @@
     },
     {
       "id": 25,
-      "label": "待PO",
+      "title": "待PO",
       "rightId": 24,
       "key": "/publish-manage/unpublished",
       "pagepermission": 1,
@@ -320,7 +320,7 @@
     },
     {
       "id": 26,
-      "label": "已PO",
+      "title": "已PO",
       "rightId": 24,
       "key": "/publish-manage/published",
       "pagepermission": 1,
@@ -328,7 +328,7 @@
     },
     {
       "id": 27,
-      "label": "已下線",
+      "title": "已下線",
       "rightId": 24,
       "key": "/publish-manage/sunset",
       "pagepermission": 1,
@@ -338,42 +338,42 @@
   "rights": [
     {
       "id": 1,
-      "label": "首頁",
+      "title": "首頁",
       "key": "/home",
       "pagepermission": 0,
       "grade": 1
     },
     {
       "id": 2,
-      "label": "用戶管理",
+      "title": "用戶管理",
       "key": "/user-manage",
       "pagepermission": 1,
       "grade": 1
     },
     {
       "id": 7,
-      "label": "權限管理",
+      "title": "權限管理",
       "key": "/right-manage",
       "pagepermission": 1,
       "grade": 1
     },
     {
       "id": 14,
-      "label": "新聞管理",
+      "title": "新聞管理",
       "key": "/news-manage",
       "pagepermission": 1,
       "grade": 1
     },
     {
       "id": 21,
-      "label": "審核管理",
+      "title": "審核管理",
       "key": "/audit-manage",
       "pagepermission": 1,
       "grade": 1
     },
     {
       "id": 24,
-      "label": "PO管理",
+      "title": "PO管理",
       "key": "/publish-manage",
       "pagepermission": 1,
       "grade": 1

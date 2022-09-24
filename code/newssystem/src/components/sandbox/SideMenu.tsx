@@ -13,7 +13,8 @@ const { Sider } = Layout;
 interface IMenuItem {
     id?: number,
     key: string,
-    label: string,
+    label?: string,
+    title?: string,
     icon: ReactElement,
     pagepermission?: number,
     grade?: number,
@@ -81,7 +82,7 @@ export default function SideMenu() {
         return {
             key: menuItem.key,
             icon: iconList[menuItem.key],
-            label: menuItem.label,
+            label: menuItem.title,
             children: (menuItem.children && menuItem.children.length !== 0) ? getMenu(menuItem.children) : undefined,
         }
     }

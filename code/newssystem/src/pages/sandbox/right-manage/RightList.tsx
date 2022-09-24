@@ -10,7 +10,7 @@ interface IDataType {
     id?: number,
     rightId?: number,
     key: string,
-    label: string,
+    title: string,
     pagepermission?: number,
     grade: number,
     children?: IDataType[] | undefined,
@@ -40,7 +40,7 @@ export default function RightList() {
         },
         {
             title: '權限名稱',
-            dataIndex: 'label'
+            dataIndex: 'title'
         },
         {
             title: '權限路徑',
