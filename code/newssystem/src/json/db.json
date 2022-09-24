@@ -200,7 +200,7 @@
       "label": "用戶列表",
       "rightId": 2,
       "key": "/user-manage/list",
-      "pagepermisson": 1,
+      "pagepermission": 1,
       "grade": 2
     },
     {
@@ -208,7 +208,7 @@
       "label": "角色列表",
       "rightId": 7,
       "key": "/right-manage/role/list",
-      "pagepermisson": 1,
+      "pagepermission": 1,
       "grade": 2
     },
     {
@@ -216,7 +216,7 @@
       "label": "權限列表",
       "rightId": 7,
       "key": "/right-manage/right/list",
-      "pagepermisson": 1,
+      "pagepermission": 1,
       "grade": 2
     },
     {
@@ -260,7 +260,7 @@
       "rightId": 14,
       "key": "/news-manage/add",
       "grade": 2,
-      "pagepermisson": 1
+      "pagepermission": 1
     },
     {
       "id": 17,
@@ -283,7 +283,7 @@
       "label": "草稿箱",
       "rightId": 14,
       "key": "/news-manage/draft",
-      "pagepermisson": 1,
+      "pagepermission": 1,
       "grade": 2
     },
     {
@@ -291,7 +291,7 @@
       "label": "新聞分類",
       "rightId": 14,
       "key": "/news-manage/category",
-      "pagepermisson": 1,
+      "pagepermission": 1,
       "grade": 2
     },
     {
@@ -299,7 +299,7 @@
       "label": "審核新聞",
       "rightId": 21,
       "key": "/audit-manage/audit",
-      "pagepermisson": 1,
+      "pagepermission": 1,
       "grade": 2
     },
     {
@@ -307,7 +307,7 @@
       "label": "審核列表",
       "rightId": 21,
       "key": "/audit-manage/list",
-      "pagepermisson": 1,
+      "pagepermission": 1,
       "grade": 2
     },
     {
@@ -315,7 +315,7 @@
       "label": "待PO",
       "rightId": 24,
       "key": "/publish-manage/unpublished",
-      "pagepermisson": 1,
+      "pagepermission": 1,
       "grade": 2
     },
     {
@@ -323,7 +323,7 @@
       "label": "已PO",
       "rightId": 24,
       "key": "/publish-manage/published",
-      "pagepermisson": 1,
+      "pagepermission": 1,
       "grade": 2
     },
     {
@@ -331,7 +331,7 @@
       "label": "已下線",
       "rightId": 24,
       "key": "/publish-manage/sunset",
-      "pagepermisson": 1,
+      "pagepermission": 1,
       "grade": 2
     }
   ],
@@ -340,42 +340,42 @@
       "id": 1,
       "label": "首頁",
       "key": "/home",
-      "pagepermisson": 1,
+      "pagepermission": 0,
       "grade": 1
     },
     {
       "id": 2,
       "label": "用戶管理",
       "key": "/user-manage",
-      "pagepermisson": 1,
+      "pagepermission": 1,
       "grade": 1
     },
     {
       "id": 7,
       "label": "權限管理",
       "key": "/right-manage",
-      "pagepermisson": 1,
+      "pagepermission": 1,
       "grade": 1
     },
     {
       "id": 14,
       "label": "新聞管理",
       "key": "/news-manage",
-      "pagepermisson": 1,
+      "pagepermission": 1,
       "grade": 1
     },
     {
       "id": 21,
       "label": "審核管理",
       "key": "/audit-manage",
-      "pagepermisson": 1,
+      "pagepermission": 1,
       "grade": 1
     },
     {
       "id": 24,
       "label": "PO管理",
       "key": "/publish-manage",
-      "pagepermisson": 1,
+      "pagepermission": 1,
       "grade": 1
     }
   ],

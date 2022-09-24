@@ -15,7 +15,7 @@ interface IMenuItem {
     key: string,
     label: string,
     icon: ReactElement,
-    pagepermisson?: number,
+    pagepermission?: number,
     grade?: number,
     children?: Array<IMenuItem>,
 }
@@ -95,7 +95,7 @@ export default function SideMenu() {
         let result: Array<IMenuItem> = [];
         list?.map((item: IMenuItem) => {
             // 篩選出頁面功能
-            return item.pagepermisson && result.push(getMenuItem(item));
+            return item.pagepermission && result.push(getMenuItem(item));
         });
         return result;
     }
