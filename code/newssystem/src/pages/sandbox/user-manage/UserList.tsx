@@ -6,7 +6,9 @@ import { useEffect, useState } from 'react'
 import UserForm from '../../../components/user-manage/UserForm';
 import { IUser } from '../../../interface/user/IUser';
 import { IRole } from '../../../interface/role/IRole';
+import { ERole } from '../../../enum/role/ERole';
 import { IRegion } from '../../../interface/region/IRegion';
+import useAuth from '../../../components/hook/useAuth';
 
 const { confirm } = Modal;
 
@@ -19,13 +21,22 @@ export default function UserList() {
     const [isFormRegionDisable, setisFormRegionDisable] = useState(false)
     const [regionList, setRegionList] = useState<IRegion[]>([])
     const [form] = Form.useForm();
+    const { userInfo } = useAuth();
 
     useEffect(() => {
         axios.get("http://localhost:5000/users?_expand=role").then(res => {
             // console.log(res);
-            setDataSource(res.data);
+            const list = res.data as IUser[];
+            setDataSource(
+                // 若是超級管理員，給予全部權限
+                userInfo.roleId === ERole.SuperAdmin ? list : [
+                    // 自己的權限
+                    ...list.filter(x => x.username === userInfo.username),
+                    // 因為區域編輯沒有此功能，因此加入此資料不會造成資料重複問題
+                    ...list.filter(x => x.region === userInfo.region && x.roleId === ERole.Editor)
+                ]);
         })
-    }, [])
+    }, [userInfo])
 
     useEffect(() => {
         axios.get("http://localhost:5000/regions").then(res => {
@@ -175,7 +186,7 @@ export default function UserList() {
                 onOk={() => isAddModal ? Add() : Update()}
             >
                 <UserForm form={form} regionList={regionList} roleList={roleList}
-                    isFormRegionDisable={isFormRegionDisable}
+                    isFormRegionDisable={isFormRegionDisable} isAddModal={isAddModal}
                     // 讓子組件能夠改變父組件的狀態，避免子組件中狀態改變但父組件未變，下次父組件再呼叫子組件時，子組件的狀態不如預期
                     setFormRegionDisable={(isRegionDisable) => setisFormRegionDisable(isRegionDisable)}
                 ></UserForm>

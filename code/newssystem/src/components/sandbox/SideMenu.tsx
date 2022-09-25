@@ -5,8 +5,8 @@ import {
 import { Layout, Menu, MenuProps } from 'antd';
 import axios from 'axios';
 import { ReactElement, useCallback, useEffect, useMemo, useState } from 'react';
-import { useLocation, useNavigate, useRoutes } from 'react-router-dom';
-import { IUser } from '../../interface/user/IUser';
+import { useLocation, useNavigate } from 'react-router-dom';
+import useAuth from '../hook/useAuth';
 import './index.css'
 
 const { Sider } = Layout;
@@ -46,6 +46,7 @@ export default function SideMenu() {
     const navigate = useNavigate();
     const location = useLocation();
     const [menu, setMenu] = useState([])
+    const auth = useAuth();
 
     useEffect(() => {
         axios.get("http://localhost:5000/rights?_embed=children").then(res => {
@@ -67,28 +68,12 @@ export default function SideMenu() {
         // 於每個元素前加入/
         paths = paths.map(x => "/" + x);
         return paths;
-    }, [])
+    }, [location.pathname])
 
     const onClick: MenuProps["onClick"] = (e) => {
         // console.log("click", e.key);
         navigate(e.key);
     }
-
-    /**
-     * 從後端取得的Menu節點，並抽取出Antd需要的欄位
-     * @param menuItem Menu節點
-     * @returns Antd Menu節點
-     */
-    const getMenuItem = useCallback((menuItem: IMenuItem): IMenuItem => {
-        return {
-            key: menuItem.key,
-            icon: iconList[menuItem.key],
-            label: menuItem.title,
-            children: (menuItem.children && menuItem.children.length !== 0) ? getMenu(menuItem.children) : undefined,
-        }
-    }, [])
-
-    const UserInfo: IUser = JSON.parse(localStorage.getItem("token") || "");
 
     /**
      * 取得Menu
@@ -99,10 +84,15 @@ export default function SideMenu() {
         let result: Array<IMenuItem> = [];
         list?.map((item: IMenuItem) => {
             // 篩選出頁面功能
-            return item.pagepermission && UserInfo.role.rights.includes(item.key) && result.push(getMenuItem(item));
+            return item.pagepermission && auth.userInfo.role.rights.includes(item.key) && result.push({
+                key: item.key,
+                icon: iconList[item.key],
+                label: item.title,
+                children: (item.children && item.children.length !== 0) ? getMenu(item.children) : undefined,
+            });
         });
         return result;
-    }, [menu])
+    }, [auth])
 
 
     return (

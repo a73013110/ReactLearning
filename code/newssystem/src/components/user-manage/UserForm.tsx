@@ -1,7 +1,9 @@
 import { Form, FormInstance, Input, Select } from 'antd'
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { IRegion } from '../../interface/region/IRegion';
 import { IRole } from '../../interface/role/IRole';
+import { ERole } from '../../enum/role/ERole'
+import useAuth from '../hook/useAuth';
 
 const { Option } = Select;
 
@@ -10,17 +12,65 @@ interface IProps {
     regionList: IRegion[],
     roleList: IRole[],
     isFormRegionDisable: boolean,
+    isAddModal: boolean,
     setFormRegionDisable: (isRegionDisable: boolean) => void
 }
 
 export default function UserForm(props: IProps) {
-    const { form, regionList, roleList, isFormRegionDisable, setFormRegionDisable } = props;
+    const { form, regionList, roleList, isFormRegionDisable, isAddModal, setFormRegionDisable } = props;
     const [isRegionDisable, setIsRegionDisable] = useState(false);
+    const { userInfo } = useAuth();
 
     useEffect(() => {
+        console.log(userInfo)
         setIsRegionDisable(isFormRegionDisable);
     }, [isFormRegionDisable])
 
+    const getRegionOption = useCallback((item: IRegion) => {
+        let isDisable = false;
+        // 新增
+        if (isAddModal) {
+            if (userInfo.roleId === ERole.SuperAdmin) {
+                isDisable = false;
+            }
+            else {
+                isDisable = item.value !== userInfo.region;
+            }
+        }
+        // 修改
+        else {
+            if (userInfo.roleId === ERole.SuperAdmin) {
+                isDisable = false;
+            }
+            else {
+                isDisable = true;
+            }
+        }
+        return <Option key={item.id} value={item.value} disabled={isDisable}>{item.title}</Option>;
+    }, [userInfo, isAddModal])
+
+    const getRoleOption = useCallback((item: IRole) => {
+        let isDisable = false;
+        // 新增
+        if (isAddModal) {
+            if (userInfo.roleId === ERole.SuperAdmin) {
+                isDisable = false;
+            }
+            else {
+                isDisable = item.id !== ERole.Editor;
+            }
+        }
+        // 修改
+        else {
+            if (userInfo.roleId === ERole.SuperAdmin) {
+                isDisable = false;
+            }
+            else {
+                isDisable = true;
+            }
+        }
+        return <Option key={item.id} value={item.id} disabled={isDisable}>{item.roleName}</Option>;
+    }, [userInfo, isAddModal])
 
     return (
 
@@ -49,9 +99,7 @@ export default function UserForm(props: IProps) {
             >
                 <Select disabled={isRegionDisable}>
                     {
-                        regionList.map((item: IRegion) => <Option key={item.id} value={item.value}>
-                            {item.title}
-                        </Option>)
+                        regionList.map((item: IRegion) => getRegionOption(item))
                     }
                 </Select>
             </Form.Item>
@@ -66,9 +114,7 @@ export default function UserForm(props: IProps) {
                     value === 1 && form.setFieldValue("region", "");
                 }}>
                     {
-                        roleList.map((item: IRole) => <Option key={item.id} value={item.id}>
-                            {item.roleName}
-                        </Option>)
+                        roleList.map((item: IRole) => getRoleOption(item))
                     }
                 </Select>
             </Form.Item>

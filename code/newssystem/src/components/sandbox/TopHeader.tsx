@@ -6,26 +6,25 @@ import {
     UserOutlined
 } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
-import { IUser } from '../../interface/user/IUser'
+import useAuth from '../hook/useAuth';
 
 const { Header } = Layout;
 
 export default function TopHeader() {
     const [collapsed, setCollapsed] = useState(false)
     const navigete = useNavigate();
+    const auth = useAuth();
 
     const changeCollapsed = () => {
         setCollapsed(!collapsed);
     }
-
-    const UserInfo: IUser = JSON.parse(localStorage.getItem("token") || "");
 
     const menu = (
         <Menu
             items={[
                 {
                     key: '1',
-                    label: UserInfo.role.roleName,
+                    label: auth.userInfo.role.roleName,
                 },
                 {
                     key: '99',
@@ -47,7 +46,7 @@ export default function TopHeader() {
             }
 
             <div style={{ float: "right" }}>
-                <span>歡迎<span style={{ color: "#1890ff" }}>{UserInfo.username}</span>回來</span>
+                <span>歡迎<span style={{ color: "#1890ff" }}>{auth.userInfo.username}</span>回來</span>
                 <Dropdown overlay={menu}>
                     <Avatar size="large" icon={<UserOutlined />} />
                 </Dropdown>
