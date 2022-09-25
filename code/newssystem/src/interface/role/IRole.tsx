@@ -1,6 +1,6 @@
 export interface IRole {
     id: number,
-    right: React.Key[],
+    rights: React.Key[],
     roleName: string,
     roleType: number,
 }

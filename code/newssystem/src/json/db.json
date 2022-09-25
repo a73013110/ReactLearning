@@ -10,8 +10,8 @@
       "roleId": 1
     },
     {
-      "username": "鋼蛋",
-      "password": "123",
+      "username": "user",
+      "password": "0000",
       "roleState": true,
       "default": false,
       "region": "亞洲",
@@ -20,7 +20,7 @@
     },
     {
       "username": "諸葛山珍",
-      "password": "123",
+      "password": "0000",
       "roleState": true,
       "default": false,
       "region": "南美洲",
@@ -29,7 +29,7 @@
     },
     {
       "username": "西門吹燈",
-      "password": "123",
+      "password": "0000",
       "roleState": true,
       "default": false,
       "region": "南極洲",
@@ -38,7 +38,7 @@
     },
     {
       "username": "軒轅翠花",
-      "password": "123",
+      "password": "0000",
       "roleState": true,
       "default": false,
       "region": "南極洲",
@@ -47,7 +47,7 @@
     },
     {
       "username": "司馬海味",
-      "password": "123",
+      "password": "0000",
       "roleState": true,
       "default": false,
       "region": "亞洲",
@@ -56,7 +56,7 @@
     },
     {
       "username": "咕嚕墩子",
-      "password": "123",
+      "password": "0000",
       "roleState": true,
       "default": false,
       "region": "亞洲",

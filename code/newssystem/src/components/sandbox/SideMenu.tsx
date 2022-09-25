@@ -4,8 +4,9 @@ import {
 } from '@ant-design/icons';
 import { Layout, Menu, MenuProps } from 'antd';
 import axios from 'axios';
-import { ReactElement, useEffect, useMemo, useState } from 'react';
+import { ReactElement, useCallback, useEffect, useMemo, useState } from 'react';
 import { useLocation, useNavigate, useRoutes } from 'react-router-dom';
+import { IUser } from '../../interface/user/IUser';
 import './index.css'
 
 const { Sider } = Layout;
@@ -78,28 +79,31 @@ export default function SideMenu() {
      * @param menuItem Menu節點
      * @returns Antd Menu節點
      */
-    const getMenuItem = (menuItem: IMenuItem): IMenuItem => {
+    const getMenuItem = useCallback((menuItem: IMenuItem): IMenuItem => {
         return {
             key: menuItem.key,
             icon: iconList[menuItem.key],
             label: menuItem.title,
             children: (menuItem.children && menuItem.children.length !== 0) ? getMenu(menuItem.children) : undefined,
         }
-    }
+    }, [])
+
+    const UserInfo: IUser = JSON.parse(localStorage.getItem("token") || "");
 
     /**
      * 取得Menu
      * @param list 從後端取得的Menu資料，也可能是children的值
      * @returns Antd Menu的input資料
      */
-    const getMenu = (list: Array<IMenuItem> | undefined): Array<IMenuItem> => {
+    const getMenu = useCallback((list: Array<IMenuItem> | undefined): Array<IMenuItem> => {
         let result: Array<IMenuItem> = [];
         list?.map((item: IMenuItem) => {
             // 篩選出頁面功能
-            return item.pagepermission && result.push(getMenuItem(item));
+            return item.pagepermission && UserInfo.role.rights.includes(item.key) && result.push(getMenuItem(item));
         });
         return result;
-    }
+    }, [menu])
+
 
     return (
         <Sider trigger={null} collapsible collapsed={false}>
