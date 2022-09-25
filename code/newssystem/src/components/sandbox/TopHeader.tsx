@@ -5,11 +5,13 @@ import {
     MenuFoldOutlined,
     UserOutlined
 } from '@ant-design/icons';
+import { useNavigate } from 'react-router-dom';
 
 const { Header } = Layout;
 
 export default function TopHeader() {
     const [collapsed, setCollapsed] = useState(false)
+    const navigete = useNavigate();
 
     const changeCollapsed = () => {
         setCollapsed(!collapsed);
@@ -26,6 +28,10 @@ export default function TopHeader() {
                     key: '99',
                     danger: true,
                     label: '登出',
+                    onClick: () => {
+                        localStorage.removeItem("token");
+                        navigete("/login");
+                    }
                 },
             ]}
         />

@@ -3,7 +3,7 @@
     {
       "id": 1,
       "username": "admin",
-      "password": 123456,
+      "password": "0000",
       "roleState": true,
       "default": true,
       "region": "",
@@ -65,7 +65,7 @@
     },
     {
       "username": "starbug",
-      "password": "123456",
+      "password": "0000",
       "region": "南美洲",
       "roleId": 3,
       "roleState": true,
@@ -74,7 +74,7 @@
     },
     {
       "username": "lhh",
-      "password": "123456",
+      "password": "0000",
       "region": "北美洲",
       "roleId": 2,
       "roleState": true,
