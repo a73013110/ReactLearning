@@ -26,7 +26,7 @@ export default function Login() {
     }
 
     return (
-        <div style={{ background: "rgb(35,39,65)", height: "100vh" }}>
+        <div style={{ background: "#001529", height: "100vh" }}>
             <LoginParticles />
             <div className="formContainer">
                 <div className="loginTitle">全球新聞發布管理系統</div>
