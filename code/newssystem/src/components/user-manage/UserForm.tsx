@@ -22,7 +22,6 @@ export default function UserForm(props: IProps) {
     const { userInfo } = useAuth();
 
     useEffect(() => {
-        console.log(userInfo)
         setIsRegionDisable(isFormRegionDisable);
     }, [isFormRegionDisable])
 
