@@ -1,15 +1,23 @@
-import { useState } from "react"
+import { Dispatch, SetStateAction, useState } from "react"
 
-export const useLocalStorage = (keyName: string, defaultValue?: any) => {
+type SetValue<T> = Dispatch<SetStateAction<T>>
+
+/**
+ * 從localStorage導入狀態
+ * @param keyName localStorage key
+ * @param defaultValue 預設值
+ * @returns [getvalue: T, setValue(value: T)]
+ */
+export function useLocalStorage<T>(keyName: string, defaultValue?: any): [T, SetValue<T>] {
     const [storedValue, setStoredValue] = useState(() => {
         // 給定預設值
-        if (defaultValue) defaultValue = {};
+        if (defaultValue === undefined) defaultValue = {};
         try {
             // 取得指定的localStorage資料
             const value = localStorage.getItem(keyName);
             // 若存在資料：回傳
             if (value) {
-                return JSON.parse(value);
+                return JSON.parse(value) as T;
             }
             // 若不存在資料：設定預設資料並回傳
             else {
@@ -28,8 +36,7 @@ export const useLocalStorage = (keyName: string, defaultValue?: any) => {
         } catch (exception) {
             setStoredValue(newValue);
         }
-
     }
-    
+
     return [storedValue, setValue];
 }
