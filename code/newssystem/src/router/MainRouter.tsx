@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useRoutes, Navigate, RouteObject } from 'react-router-dom'
 import useAuth from '../components/hook/useAuth';
 import { IMenuItem } from '../interface/menu/IMenuItem';
@@ -46,9 +46,10 @@ export default function MainRouter() {
     }
 
     // 檢查使用者是否有該功能權限
-    const checkUserPermission = (item: IMenuItem) => {
+    const checkUserPermission = useCallback((item: IMenuItem) => {
         return isLogin && userInfo.role.rights.includes(item.key);
-    }
+    }, [isLogin, userInfo])
+
 
     useEffect(() => {
         Promise.all([
@@ -74,7 +75,7 @@ export default function MainRouter() {
                 })
             ])
         })
-    }, [])
+    }, [checkUserPermission])
 
 
     const route = useRoutes([
