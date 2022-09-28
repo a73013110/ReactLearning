@@ -53,8 +53,8 @@ export default function MainRouter() {
 
     useEffect(() => {
         Promise.all([
-            axios.get("http://localhost:5000/rights"),
-            axios.get("http://localhost:5000/children")
+            axios.get("/rights"),
+            axios.get("/children")
         ]).then(res => {
             // console.log(res);
             let routeList: IMenuItem[] = [...res[0].data, ...res[1].data]

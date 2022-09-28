@@ -20,7 +20,7 @@ export default function RightList() {
     const [dataSource, setDataSource] = useState<IDataType[]>([])
 
     useEffect(() => {
-        axios.get("http://localhost:5000/rights?_embed=children").then(res => {
+        axios.get("/rights?_embed=children").then(res => {
             // 第一層級的功能，若children為空陣列，將其轉為undefine，這樣table就不會顯示展開的符號
             (res.data as IDataType[]).forEach(item => {
                 item.children = item.children?.length === 0 ? undefined : item.children;
@@ -61,7 +61,7 @@ export default function RightList() {
                             onOk() {
                                 if (item.grade === 1) {
                                     setDataSource(dataSource.filter(data => data.id !== item.id));
-                                    axios.delete(`http://localhost:5000/rights/${item.id}`);
+                                    axios.delete(`/rights/${item.id}`);
                                 }
                                 else if (item.grade === 2) {
                                     let list = dataSource.filter(data => data.id === item.rightId)[0];
@@ -69,7 +69,7 @@ export default function RightList() {
                                     list.children = list.children?.filter(data => data.id !== item.id);
                                     // 取巧方式讓dataSource重新渲染
                                     setDataSource([...dataSource]);
-                                    axios.delete(`http://localhost:5000/children/${item.id}`);
+                                    axios.delete(`/children/${item.id}`);
                                 }
                             },
                             onCancel() {
@@ -82,12 +82,12 @@ export default function RightList() {
                             item.pagepermission = item.pagepermission === 1 ? 0 : 1;
                             setDataSource([...dataSource]);
                             if (item.grade === 1) {                                
-                                axios.patch(`http://localhost:5000/rights/${item.id}`, {
+                                axios.patch(`/rights/${item.id}`, {
                                     pagepermission: item.pagepermission
                                 });
                             }
                             else if (item.grade === 2) {
-                                axios.patch(`http://localhost:5000/children/${item.id}`, {
+                                axios.patch(`/children/${item.id}`, {
                                     pagepermission: item.pagepermission
                                 });
                             }

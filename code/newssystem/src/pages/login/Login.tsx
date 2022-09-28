@@ -15,7 +15,7 @@ export default function Login() {
     const { setUserInfo } = useAuth();
 
     const onFinish = (values: { username: string, password: string }) => {
-        axios.get<any, AxiosResponse<IUser[], any>>(`http://localhost:5000/users?username=${values.username}&password=${values.password}&roleState=true&_expand=role`).then(res => {
+        axios.get<any, AxiosResponse<IUser[], any>>(`/users?username=${values.username}&password=${values.password}&roleState=true&_expand=role`).then(res => {
             // console.log(res.data)
             if (res.data.length === 0) {
                 message.error("帳號或密碼錯誤");

@@ -24,7 +24,7 @@ export default function UserList() {
     const { userInfo } = useAuth();
 
     useEffect(() => {
-        axios.get("http://localhost:5000/users?_expand=role").then(res => {
+        axios.get("/users?_expand=role").then(res => {
             // console.log(res);
             const list = res.data as IUser[];
             setDataSource(
@@ -39,14 +39,14 @@ export default function UserList() {
     }, [userInfo])
 
     useEffect(() => {
-        axios.get("http://localhost:5000/regions").then(res => {
+        axios.get("/regions").then(res => {
             // console.log(res);
             setRegionList(res.data);
         })
     }, [])
 
     useEffect(() => {
-        axios.get("http://localhost:5000/roles").then(res => {
+        axios.get("/roles").then(res => {
             // console.log(res);
             setRoleList(res.data);
         })
@@ -100,7 +100,7 @@ export default function UserList() {
     const Add = () => {
         form.validateFields().then((values: IUser) => {
             setIsModalVisible(false);
-            axios.post("http://localhost:5000/users", {
+            axios.post("/users", {
                 ...values,
                 "roleState": true,
                 "default": false,
@@ -119,7 +119,7 @@ export default function UserList() {
     const UpdateRoleState = (item: IUser) => {
         item.roleState = !item.roleState;
         setDataSource([...dataSource]);
-        axios.patch(`http://localhost:5000/users/${item.id}`, {
+        axios.patch(`/users/${item.id}`, {
             roleState: item.roleState
         })
     }
@@ -145,7 +145,7 @@ export default function UserList() {
                 }
                 return data;
             }))
-            axios.patch(`http://localhost:5000/users/${values.id}`, values)
+            axios.patch(`/users/${values.id}`, values)
         }).catch(info => {
             console.log('Validate Failed:', info);
         });
@@ -157,7 +157,7 @@ export default function UserList() {
             icon: <ExclamationCircleOutlined />,
             onOk() {
                 setDataSource(dataSource.filter(data => data.id !== item.id));
-                axios.delete(`http://localhost:5000/users/${item.id}`);
+                axios.delete(`/users/${item.id}`);
             }
         });
     }
