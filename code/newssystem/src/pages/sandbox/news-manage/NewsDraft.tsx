@@ -1,4 +1,4 @@
-import { Button, Table, Tag, Modal } from 'antd'
+import { Button, Table, Modal } from 'antd'
 import { DeleteOutlined, EditOutlined, ExclamationCircleOutlined, UploadOutlined } from '@ant-design/icons';
 import { ColumnsType } from 'antd/es/table'
 import axios from 'axios'
@@ -17,7 +17,7 @@ export default function NewsDraft() {
         axios.get(`/news?auditState=0&author=${userInfo.username}&_expand=category`).then(res => {
             setDataSource(res.data);
         })
-    }, [])
+    }, [userInfo])
 
 
     const columns: ColumnsType<INews> = [
@@ -30,7 +30,10 @@ export default function NewsDraft() {
         },
         {
             title: '新聞標題',
-            dataIndex: 'title'
+            dataIndex: 'title',
+            render: (title, item) => {
+                return <a href={`#/news-manage/preview/${item.id}`}>{title}</a>
+            }
         },
         {
             title: '作者',

@@ -3,6 +3,7 @@ export interface IMenuItem {
     "title": string,
     "rightId"?: number,
     "key": string,
-    "pagepermission": number,
+    "pagepermission"?: number,
+    "routepermisson"?: number,
     "grade": number
 }

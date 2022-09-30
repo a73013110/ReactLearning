@@ -10,6 +10,7 @@ import Home from '../pages/sandbox/home/Home';
 import NewsAdd from '../pages/sandbox/news-manage/NewsAdd';
 import NewsCategory from '../pages/sandbox/news-manage/NewsCategory';
 import NewsDraft from '../pages/sandbox/news-manage/NewsDraft';
+import NewsPreview from '../pages/sandbox/news-manage/NewsPreview';
 import NewsSandBox from '../pages/sandbox/NewsSandBox';
 import NoPermission from '../pages/sandbox/nopermission/NoPermission';
 import Published from '../pages/sandbox/publish-manage/Published';
@@ -29,6 +30,7 @@ const LocalRouterMap: ILocalRouterMap = {
     "/news-manage/add": <NewsAdd />,
     "/news-manage/draft": <NewsDraft />,
     "/news-manage/category": <NewsCategory />,
+    "/news-manage/preview/:id": <NewsPreview />,
     "/audit-manage/audit": <Audit />,
     "/audit-manage/list": <AuditList />,
     "/publish-manage/unpublished": <Unpublished />,
@@ -42,7 +44,7 @@ export default function MainRouter() {
 
     // 檢查該功能是否有key值或啟用狀態
     const checkRoute = (item: IMenuItem) => {
-        return LocalRouterMap[item.key] && item.pagepermission
+        return LocalRouterMap[item.key] && (item.pagepermission || item.routepermisson)
     }
 
     // 檢查使用者是否有該功能權限
