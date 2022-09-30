@@ -1,7 +1,11 @@
-import { Button, Form, Input, PageHeader, Select, Steps } from 'antd'
+import { Button, Form, Input, message, notification, PageHeader, Select, Steps } from 'antd'
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import useAuth from '../../../components/hook/useAuth';
 import NewsEditor from '../../../components/news/NewsEditor';
+import { EAuditState } from '../../../enum/news/EAuditState';
+import { EPublishState } from '../../../enum/news/EPublishState';
 import { ICategory } from '../../../interface/news/ICategory';
 
 import style from './News.module.css'
@@ -15,12 +19,38 @@ export default function NewsAdd() {
     const [form] = Form.useForm();
     const [formInfo, setFormInfo] = useState({})
     const [content, setContent] = useState("");
+    const { userInfo } = useAuth();
+    const navigate = useNavigate();
 
     useEffect(() => {
         axios.get("/categories").then(res => {
             setCategoryList(res.data);
         })
     }, [])
+
+    const handleSave = (auditState: EAuditState) => {
+        // console.log(userInfo)
+        axios.post("/news", {
+            ...formInfo,
+            "content": content,
+            "region": userInfo.region ? userInfo.region : "全球",
+            "author": userInfo.username,
+            "roleId": userInfo.roleId,
+            "auditState": auditState,
+            "publishState": EPublishState.temp,
+            "createTime": Date.now(),
+            "star": 0,
+            "view": 0,
+            // "publishTime": 0
+        }).then(res => {
+            navigate(auditState === 0 ? "/news-manage/draft" : "/audit-manage/list");
+            notification.info({
+                message: "通知",
+                description: `您可以到${auditState === 0 ? "草稿箱" : "審核列表"}中查看您的新聞`,
+                placement: "bottomRight",
+            });
+        })
+    }
 
     return (
         <div>
@@ -57,7 +87,7 @@ export default function NewsAdd() {
                         >
                             <Select>
                                 {
-                                    categoryList.map(item => <Option key={item.id} value={item.value}>{item.title}</Option>)
+                                    categoryList.map(item => <Option key={item.id} value={item.id}>{item.title}</Option>)
                                 }
                             </Select>
                         </Form.Item>
@@ -74,8 +104,8 @@ export default function NewsAdd() {
             <div style={{ marginTop: "50px" }}>
                 {
                     current === 2 && <span>
-                        <Button type="primary">保存草稿</Button>
-                        <Button danger>提交審核</Button>
+                        <Button type="primary" onClick={() => handleSave(0)}>保存草稿</Button>
+                        <Button danger onClick={() => handleSave(1)}>提交審核</Button>
                     </span>
                 }
                 {
@@ -90,8 +120,13 @@ export default function NewsAdd() {
                             })
                         }
                         else {
-                            console.log(formInfo, content)
-                            setCurrent(current + 1);
+                            // console.log(formInfo, content)
+                            if (content === "" || content.trim() === "<p></p>") {
+                                message.error("新聞內容不可為空");
+                            }
+                            else {
+                                setCurrent(current + 1);
+                            }
                         }
                     }}>下一步</Button>
                 }
