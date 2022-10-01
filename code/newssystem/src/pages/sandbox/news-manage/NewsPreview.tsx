@@ -4,8 +4,8 @@ import moment from 'moment';
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { INews } from '../../../interface/news/INews';
-import { EAuditStateName } from '../../../enum/news/EAuditState';
-import { EPublishStateName } from '../../../enum/news/EPublishState';
+import { EAuditStateColor, EAuditStateName } from '../../../enum/news/EAuditState';
+import { EPublishStateColor, EPublishStateName } from '../../../enum/news/EPublishState';
 
 interface IParams {
     id: string,
@@ -40,12 +40,12 @@ export default function NewsPreview() {
 
                             <Descriptions.Item label="區域">{newsInfo.region}</Descriptions.Item>
                             <Descriptions.Item label="審核狀態">
-                                <span style={{ color: "red" }}>
+                                <span style={{ color: EAuditStateColor[newsInfo.auditState] }}>
                                     {EAuditStateName[newsInfo.auditState]}
                                 </span>
                             </Descriptions.Item>
                             <Descriptions.Item label="發布狀態">
-                                <span style={{ color: "red" }}>
+                                <span style={{ color: EPublishStateColor[newsInfo.publishState] }}>
                                     {EPublishStateName[newsInfo.publishState]}
                                 </span>
                             </Descriptions.Item>

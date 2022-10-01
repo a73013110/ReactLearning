@@ -11,3 +11,10 @@ export enum EAuditStateName {
     "已通過" = 2,
     "未通過" = 3
 }
+
+export enum EAuditStateColor {
+    "black" = 0,
+    "orange" = 1,
+    "green" = 2,
+    "red" = 3
+}

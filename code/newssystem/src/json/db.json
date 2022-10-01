@@ -306,7 +306,7 @@
     },
     {
       "id": 25,
-      "title": "待PO",
+      "title": "待發布",
       "rightId": 24,
       "key": "/publish-manage/unpublished",
       "pagepermission": 1,
@@ -314,7 +314,7 @@
     },
     {
       "id": 26,
-      "title": "已PO",
+      "title": "已發布",
       "rightId": 24,
       "key": "/publish-manage/published",
       "pagepermission": 1,
@@ -367,7 +367,7 @@
     },
     {
       "id": 24,
-      "title": "PO管理",
+      "title": "發布管理",
       "key": "/publish-manage",
       "pagepermission": 1,
       "grade": 1
@@ -795,12 +795,26 @@
       "region": "全球",
       "author": "admin",
       "roleId": 1,
-      "auditState": 1,
+      "auditState": 3,
       "publishState": 0,
       "createTime": 1664612417421,
       "star": 0,
       "view": 0,
       "id": 25
+    },
+    {
+      "title": "zzz",
+      "categoryId": 6,
+      "content": "<p>zzz</p>\n",
+      "region": "全球",
+      "author": "admin",
+      "roleId": 1,
+      "auditState": 1,
+      "publishState": 0,
+      "createTime": 1664616629003,
+      "star": 0,
+      "view": 0,
+      "id": 26
     }
   ]
 }

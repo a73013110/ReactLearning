@@ -11,3 +11,10 @@ export enum EPublishStateName {
     "已上線" = 2,
     "已下線" = 3
 }
+
+export enum EPublishStateColor {
+    "black" = 0,
+    "orange" = 1,
+    "green" = 2,
+    "red" = 3
+}
