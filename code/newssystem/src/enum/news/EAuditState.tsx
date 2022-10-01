@@ -4,3 +4,10 @@ export enum EAuditState {
     "pass" = 2,         // 已通過
     "reject" = 3        // 未通過
 }
+
+export enum EAuditStateName {
+    "未審核" = 0,
+    "審核中" = 1,
+    "已通過" = 2,
+    "未通過" = 3
+}

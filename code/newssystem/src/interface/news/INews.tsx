@@ -1,5 +1,6 @@
 import { EAuditState } from "../../enum/news/EAuditState";
 import { EPublishState } from "../../enum/news/EPublishState";
+import { IRole } from "../role/IRole";
 import { ICategory } from "./ICategory";
 
 export interface INews {
@@ -10,6 +11,7 @@ export interface INews {
     region: string,
     author: string,
     roleId: number,
+    role: IRole,
     auditState: EAuditState,
     publishState: EPublishState,
     createTime: number,
