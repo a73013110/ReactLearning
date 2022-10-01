@@ -1,4 +1,4 @@
-import { Button, Table, Modal } from 'antd'
+import { Button, Table, Modal, notification } from 'antd'
 import { DeleteOutlined, EditOutlined, ExclamationCircleOutlined, UploadOutlined } from '@ant-design/icons';
 import { ColumnsType } from 'antd/es/table'
 import axios from 'axios'
@@ -65,7 +65,18 @@ export default function NewsDraft() {
 
                     <Button shape="circle" icon={<EditOutlined />} onClick={() => { navigate(`/news-manage/update/${item.id}`); }}></Button>
 
-                    <Button type="primary" shape="circle" icon={<UploadOutlined />}></Button>
+                    <Button type="primary" shape="circle" icon={<UploadOutlined />} onClick={() => {
+                        axios.patch(`/news/${item.id}`, {
+                            "auditState": 1
+                        }).then(res => {
+                            navigate("/audit-manage/list");
+                            notification.info({
+                                message: "通知",
+                                description: `您可以到審核列表中查看您的新聞`,
+                                placement: "bottomRight",
+                            });
+                        })
+                    }}></Button>
                 </div>
             }
         }
