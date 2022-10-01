@@ -6,12 +6,14 @@ import { useEffect, useState } from 'react'
 import { INews } from '../../../interface/news/INews';
 import useAuth from '../../../components/hook/useAuth';
 import { ICategory } from '../../../interface/news/ICategory';
+import { useNavigate } from 'react-router-dom';
 
 const { confirm } = Modal;
 
 export default function NewsDraft() {
     const [dataSource, setDataSource] = useState<INews[]>([]);
     const { userInfo } = useAuth();
+    const navigate = useNavigate();
 
     useEffect(() => {
         axios.get(`/news?auditState=0&author=${userInfo.username}&_expand=category`).then(res => {
@@ -61,7 +63,7 @@ export default function NewsDraft() {
                         });
                     }}></Button>
 
-                    <Button shape="circle" icon={<EditOutlined />}></Button>
+                    <Button shape="circle" icon={<EditOutlined />} onClick={() => { navigate(`/news-manage/update/${item.id}`); }}></Button>
 
                     <Button type="primary" shape="circle" icon={<UploadOutlined />}></Button>
                 </div>

@@ -11,6 +11,7 @@ import NewsAdd from '../pages/sandbox/news-manage/NewsAdd';
 import NewsCategory from '../pages/sandbox/news-manage/NewsCategory';
 import NewsDraft from '../pages/sandbox/news-manage/NewsDraft';
 import NewsPreview from '../pages/sandbox/news-manage/NewsPreview';
+import NewsUpdate from '../pages/sandbox/news-manage/NewsUpdate';
 import NewsSandBox from '../pages/sandbox/NewsSandBox';
 import NoPermission from '../pages/sandbox/nopermission/NoPermission';
 import Published from '../pages/sandbox/publish-manage/Published';
@@ -31,6 +32,7 @@ const LocalRouterMap: ILocalRouterMap = {
     "/news-manage/draft": <NewsDraft />,
     "/news-manage/category": <NewsCategory />,
     "/news-manage/preview/:id": <NewsPreview />,
+    "/news-manage/update/:id": <NewsUpdate />,
     "/audit-manage/audit": <Audit />,
     "/audit-manage/list": <AuditList />,
     "/publish-manage/unpublished": <Unpublished />,

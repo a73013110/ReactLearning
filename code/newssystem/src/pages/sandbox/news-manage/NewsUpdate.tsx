@@ -1,26 +1,30 @@
 import { Button, Form, Input, message, notification, PageHeader, Select, Steps } from 'antd'
 import axios from 'axios';
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
-import useAuth from '../../../components/hook/useAuth';
+import { useNavigate, useParams } from 'react-router-dom';
 import NewsEditor from '../../../components/news/NewsEditor';
 import { EAuditState } from '../../../enum/news/EAuditState';
-import { EPublishState } from '../../../enum/news/EPublishState';
 import { ICategory } from '../../../interface/news/ICategory';
+import { INews } from '../../../interface/news/INews';
 
 import style from './News.module.css'
 
 const { Step } = Steps;
 const { Option } = Select;
 
-export default function NewsAdd() {
+interface IParams {
+    id: string,
+    [key: string]: string
+}
+
+export default function NewsUpdate() {
     const [current, setCurrent] = useState(0);
     const [categoryList, setCategoryList] = useState<ICategory[]>([]);
     const [form] = Form.useForm();
     const [formInfo, setFormInfo] = useState({})
     const [content, setContent] = useState("");
-    const { userInfo } = useAuth();
     const navigate = useNavigate();
+    const params = useParams<IParams>();
 
     useEffect(() => {
         axios.get("/categories").then(res => {
@@ -28,20 +32,25 @@ export default function NewsAdd() {
         })
     }, [])
 
+    useEffect(() => {
+        axios.get(`/news/${params.id}?_expand=category&_expand=role`).then(res => {
+            // console.log(res.data);
+            const { title, categoryId, content } = res.data as INews;
+            form.setFieldsValue({
+                title,
+                categoryId
+            });
+            setContent(content);
+        })
+    }, [params.id, form])
+
+
     const handleSave = (auditState: EAuditState) => {
         // console.log(userInfo)
-        axios.post("/news", {
+        axios.patch(`/news/${params.id}`, {
             ...formInfo,
             "content": content,
-            "region": userInfo.region ? userInfo.region : "全球",
-            "author": userInfo.username,
-            "roleId": userInfo.roleId,
-            "auditState": auditState,
-            "publishState": EPublishState.temp,
-            "createTime": Date.now(),
-            "star": 0,
-            "view": 0,
-            // "publishTime": 0
+            "auditState": auditState
         }).then(res => {
             navigate(auditState === 0 ? "/news-manage/draft" : "/audit-manage/list");
             notification.info({
@@ -56,7 +65,8 @@ export default function NewsAdd() {
         <div>
             <PageHeader
                 className="site-page-header"
-                title="撰寫新聞"
+                title="更新新聞"
+                onBack={() => window.history.back()}
                 subTitle="This is a subtitle"
             />
             <Steps current={current}>
@@ -96,7 +106,7 @@ export default function NewsAdd() {
                 <div className={current === 1 ? "" : style.active}>
                     <NewsEditor getContent={(value) => {
                         setContent(value);
-                    }}></NewsEditor>
+                    }} content={content}></NewsEditor>
                 </div>
                 <div className={current === 2 ? "" : style.active}></div>
             </div>
