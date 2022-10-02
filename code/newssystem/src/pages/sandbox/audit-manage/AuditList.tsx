@@ -80,7 +80,8 @@ export default function AuditList() {
 
     const handlePublish = (item: INews) => {
         axios.patch(`/news/${item.id}`, {
-            publishState: EPublishState.published
+            publishState: EPublishState.published,
+            publishTime: Date.now()
         }).then(res => {
             navigate("/publish-manage/published");
             notification.info({
