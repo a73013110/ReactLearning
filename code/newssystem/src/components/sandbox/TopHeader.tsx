@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import { Avatar, Dropdown, Layout, Menu } from 'antd';
 import {
     MenuUnfoldOutlined,
@@ -7,16 +6,19 @@ import {
 } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import useAuth from '../hook/useAuth';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { toggleCollapsed } from '../../slices/collapsedSlice';
 
 const { Header } = Layout;
 
 export default function TopHeader() {
-    const [collapsed, setCollapsed] = useState(false)
+    const isCollapsed = useAppSelector(state => state.collapsed.isCollapsed);
+    const dispatch = useAppDispatch();
     const navigete = useNavigate();
     const auth = useAuth();
 
     const changeCollapsed = () => {
-        setCollapsed(!collapsed);
+        dispatch(toggleCollapsed());
     }
 
     const menu = (
@@ -42,7 +44,7 @@ export default function TopHeader() {
     return (
         <Header className="site-layout-background" style={{ padding: "0px 16px" }}>
             {
-                collapsed ? <MenuUnfoldOutlined onClick={changeCollapsed} /> : <MenuFoldOutlined onClick={changeCollapsed} />
+                isCollapsed ? <MenuUnfoldOutlined onClick={changeCollapsed} /> : <MenuFoldOutlined onClick={changeCollapsed} />
             }
 
             <div style={{ float: "right" }}>

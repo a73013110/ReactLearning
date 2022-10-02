@@ -6,6 +6,7 @@ import { Layout, Menu, MenuProps } from 'antd';
 import axios from 'axios';
 import { ReactElement, useCallback, useEffect, useMemo, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useAppSelector } from '../../redux/hooks';
 import useAuth from '../hook/useAuth';
 import './index.css'
 
@@ -43,6 +44,7 @@ const iconList: { [key: string]: ReactElement } = {
 }
 
 export default function SideMenu() {
+    const isCollapsed = useAppSelector(state => state.collapsed.isCollapsed);
     const navigate = useNavigate();
     const location = useLocation();
     const [menu, setMenu] = useState([])
@@ -96,7 +98,7 @@ export default function SideMenu() {
 
 
     return (
-        <Sider trigger={null} collapsible collapsed={false}>
+        <Sider trigger={null} collapsible collapsed={isCollapsed}>
             <div style={{ display: "flex", height: "100%", "flexDirection": "column" }}>
                 <div className="logo">全球新聞發布管理系統</div>
                 <div style={{ flex: 1, "overflow": "auto" }}>
