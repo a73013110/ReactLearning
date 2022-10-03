@@ -3,14 +3,14 @@ import { ColumnsType } from 'antd/es/table';
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import useAuth from '../../../components/hook/useAuth'
 import { EAuditState, EAuditStateColor, EAuditStateName } from '../../../enum/news/EAuditState';
 import { EPublishState } from '../../../enum/news/EPublishState';
 import { ICategory } from '../../../interface/news/ICategory';
 import { INews } from '../../../interface/news/INews';
+import { useAppSelector } from '../../../redux/hooks';
 
 export default function AuditList() {
-    const { userInfo } = useAuth();
+    const userInfo = useAppSelector(state => state.auth.userInfo);
     const [dataSource, setDataSource] = useState<INews[]>([])
     const navigate = useNavigate();
 

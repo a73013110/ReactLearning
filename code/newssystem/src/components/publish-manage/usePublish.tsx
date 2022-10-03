@@ -3,10 +3,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { EPublishState } from "../../enum/news/EPublishState";
 import { INews } from "../../interface/news/INews";
-import useAuth from "../hook/useAuth";
+import { useAppSelector } from "../../redux/hooks";
 
 function usePublish(publishState: EPublishState) {
-    const { userInfo } = useAuth();
+    const userInfo = useAppSelector(state => state.auth.userInfo);
     const [dataSource, setDataSource] = useState<INews[]>([])
     
     useEffect(() => {

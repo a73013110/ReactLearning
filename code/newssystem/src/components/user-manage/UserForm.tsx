@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { IRegion } from '../../interface/region/IRegion';
 import { IRole } from '../../interface/role/IRole';
 import { ERole } from '../../enum/role/ERole'
-import useAuth from '../hook/useAuth';
+import { useAppSelector } from '../../redux/hooks';
 
 const { Option } = Select;
 
@@ -19,7 +19,7 @@ interface IProps {
 export default function UserForm(props: IProps) {
     const { form, regionList, roleList, isFormRegionDisable, isAddModal, setFormRegionDisable } = props;
     const [isRegionDisable, setIsRegionDisable] = useState(false);
-    const { userInfo } = useAuth();
+    const userInfo = useAppSelector(state => state.auth.userInfo);
 
     useEffect(() => {
         setIsRegionDisable(isFormRegionDisable);

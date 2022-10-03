@@ -8,7 +8,7 @@ import { IUser } from '../../../interface/user/IUser';
 import { IRole } from '../../../interface/role/IRole';
 import { ERole } from '../../../enum/role/ERole';
 import { IRegion } from '../../../interface/region/IRegion';
-import useAuth from '../../../components/hook/useAuth';
+import { useAppSelector } from '../../../redux/hooks';
 
 const { confirm } = Modal;
 
@@ -21,7 +21,7 @@ export default function UserList() {
     const [isFormRegionDisable, setisFormRegionDisable] = useState(false)
     const [regionList, setRegionList] = useState<IRegion[]>([])
     const [form] = Form.useForm();
-    const { userInfo } = useAuth();
+    const userInfo = useAppSelector(state => state.auth.userInfo);
 
     useEffect(() => {
         axios.get("/users?_expand=role").then(res => {

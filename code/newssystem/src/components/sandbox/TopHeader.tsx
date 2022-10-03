@@ -5,9 +5,10 @@ import {
     UserOutlined
 } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
-import useAuth from '../hook/useAuth';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { toggleCollapsed } from '../../slices/collapsedSlice';
+import { setUserInfo } from '../../slices/authSlice';
+import { IUser } from '../../interface/user/IUser';
 
 const { Header } = Layout;
 
@@ -15,7 +16,7 @@ export default function TopHeader() {
     const isCollapsed = useAppSelector(state => state.collapsed.isCollapsed);
     const dispatch = useAppDispatch();
     const navigete = useNavigate();
-    const auth = useAuth();
+    const userInfo = useAppSelector(state => state.auth.userInfo);
 
     const changeCollapsed = () => {
         dispatch(toggleCollapsed());
@@ -26,14 +27,14 @@ export default function TopHeader() {
             items={[
                 {
                     key: '1',
-                    label: auth.userInfo.role.roleName,
+                    label: userInfo.role.roleName,
                 },
                 {
                     key: '99',
                     danger: true,
                     label: '登出',
                     onClick: () => {
-                        localStorage.removeItem("token");
+                        dispatch(setUserInfo({} as IUser));
                         navigete("/login");
                     }
                 },
@@ -48,7 +49,7 @@ export default function TopHeader() {
             }
 
             <div style={{ float: "right" }}>
-                <span>歡迎<span style={{ color: "#1890ff" }}>{auth.userInfo.username}</span>回來</span>
+                <span>歡迎<span style={{ color: "#1890ff" }}>{userInfo.username}</span>回來</span>
                 <Dropdown overlay={menu}>
                     <Avatar size="large" icon={<UserOutlined />} />
                 </Dropdown>

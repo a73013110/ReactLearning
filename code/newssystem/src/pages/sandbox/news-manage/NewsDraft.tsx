@@ -4,15 +4,15 @@ import { ColumnsType } from 'antd/es/table'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { INews } from '../../../interface/news/INews';
-import useAuth from '../../../components/hook/useAuth';
 import { ICategory } from '../../../interface/news/ICategory';
 import { useNavigate } from 'react-router-dom';
+import { useAppSelector } from '../../../redux/hooks';
 
 const { confirm } = Modal;
 
 export default function NewsDraft() {
     const [dataSource, setDataSource] = useState<INews[]>([]);
-    const { userInfo } = useAuth();
+    const userInfo = useAppSelector(state => state.auth.userInfo);
     const navigate = useNavigate();
 
     useEffect(() => {

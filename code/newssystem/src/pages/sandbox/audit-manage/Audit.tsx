@@ -2,16 +2,16 @@ import { Button, notification, Table } from 'antd';
 import { ColumnsType } from 'antd/es/table';
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import useAuth from '../../../components/hook/useAuth';
 import { EAuditState } from '../../../enum/news/EAuditState';
 import { EPublishState } from '../../../enum/news/EPublishState';
 import { ERole } from '../../../enum/role/ERole';
 import { ICategory } from '../../../interface/news/ICategory';
 import { INews } from '../../../interface/news/INews';
+import { useAppSelector } from '../../../redux/hooks';
 
 export default function Audit() {
     const [dataSource, setDataSource] = useState<INews[]>([]);
-    const { userInfo } = useAuth();
+    const userInfo = useAppSelector(state => state.auth.userInfo);
 
     useEffect(() => {
         axios.get(`/news?auditState=1&_expand=category`).then(res => {

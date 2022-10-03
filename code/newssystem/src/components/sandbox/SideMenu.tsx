@@ -7,7 +7,6 @@ import axios from 'axios';
 import { ReactElement, useCallback, useEffect, useMemo, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../../redux/hooks';
-import useAuth from '../hook/useAuth';
 import './index.css'
 
 const { Sider } = Layout;
@@ -48,7 +47,7 @@ export default function SideMenu() {
     const navigate = useNavigate();
     const location = useLocation();
     const [menu, setMenu] = useState([])
-    const auth = useAuth();
+    const userInfo = useAppSelector(state => state.auth.userInfo);
 
     useEffect(() => {
         axios.get("/rights?_embed=children").then(res => {
@@ -86,7 +85,7 @@ export default function SideMenu() {
         let result: Array<IMenuItem> = [];
         list?.map((item: IMenuItem) => {
             // 篩選出頁面功能
-            return item.pagepermission && auth.userInfo.role.rights.includes(item.key) && result.push({
+            return item.pagepermission && userInfo.role.rights.includes(item.key) && result.push({
                 key: item.key,
                 icon: iconList[item.key],
                 label: item.title,
@@ -94,7 +93,7 @@ export default function SideMenu() {
             });
         });
         return result;
-    }, [auth])
+    }, [userInfo])
 
 
     return (

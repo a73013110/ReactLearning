@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { useCallback, useEffect, useState } from 'react';
 import { useRoutes, Navigate, RouteObject } from 'react-router-dom'
-import useAuth from '../components/hook/useAuth';
 import { IMenuItem } from '../interface/menu/IMenuItem';
 import Login from '../pages/login/Login';
 import Audit from '../pages/sandbox/audit-manage/Audit';
@@ -20,6 +19,7 @@ import Unpublished from '../pages/sandbox/publish-manage/Unpublished';
 import RightList from '../pages/sandbox/right-manage/RightList';
 import RoleList from '../pages/sandbox/right-manage/RoleList';
 import UserList from '../pages/sandbox/user-manage/UserList';
+import { useAppSelector } from '../redux/hooks';
 
 interface ILocalRouterMap { [key: string]: React.ReactNode }
 
@@ -42,7 +42,8 @@ const LocalRouterMap: ILocalRouterMap = {
 
 export default function MainRouter() {
     const [BackRouteList, setBackRouteList] = useState<RouteObject[]>([])
-    const { userInfo, isLogin } = useAuth();
+    const userInfo = useAppSelector(state => state.auth.userInfo);
+    const isLogin = useAppSelector(state => state.auth.isLogin);
 
     // 檢查該功能是否有key值或啟用狀態
     const checkRoute = (item: IMenuItem) => {
@@ -51,35 +52,39 @@ export default function MainRouter() {
 
     // 檢查使用者是否有該功能權限
     const checkUserPermission = useCallback((item: IMenuItem) => {
-        return isLogin && userInfo.role.rights.includes(item.key);
-    }, [isLogin, userInfo])
-
+        return userInfo.role.rights.includes(item.key);
+    }, [userInfo])
 
     useEffect(() => {
-        Promise.all([
-            axios.get("/rights"),
-            axios.get("/children")
-        ]).then(res => {
-            // console.log(res);
-            let routeList: IMenuItem[] = [...res[0].data, ...res[1].data]
-            setBackRouteList([
-                {
-                    path: "",
-                    element: <Navigate to="/home" />
-                },
-                {
-                    path: "*",
-                    element: <NoPermission />
-                },
-                ...routeList.map(item => {
-                    return checkRoute(item) && checkUserPermission(item) ? {
-                        path: item.key,
-                        element: LocalRouterMap[item.key]
-                    } : {}
-                })
-            ])
-        })
-    }, [checkUserPermission])
+        if (isLogin) {
+            Promise.all([
+                axios.get("/rights"),
+                axios.get("/children")
+            ]).then(res => {
+                // console.log(res);
+                let routeList: IMenuItem[] = [...res[0].data, ...res[1].data]
+                setBackRouteList([
+                    {
+                        path: "",
+                        element: <Navigate to="/home" />
+                    },
+                    {
+                        path: "*",
+                        element: <NoPermission />
+                    },
+                    ...routeList.map(item => {
+                        return checkRoute(item) && checkUserPermission(item) ? {
+                            path: item.key,
+                            element: LocalRouterMap[item.key]
+                        } : {}
+                    })
+                ])
+            })
+        }
+        else {
+            setBackRouteList([]);
+        }
+    }, [checkUserPermission, isLogin])
 
 
     const route = useRoutes([

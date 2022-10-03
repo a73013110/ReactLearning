@@ -8,11 +8,12 @@ import './Login.scss'
 import axios, { AxiosResponse } from 'axios';
 import { IUser } from '../../interface/user/IUser';
 import { useNavigate } from 'react-router-dom';
-import useAuth from '../../components/hook/useAuth';
+import { useAppDispatch } from '../../redux/hooks';
+import { setUserInfo } from '../../slices/authSlice';
 
 export default function Login() {
     const navigate = useNavigate();
-    const { setUserInfo } = useAuth();
+    const dispatch = useAppDispatch();
 
     const onFinish = (values: { username: string, password: string }) => {
         axios.get<any, AxiosResponse<IUser[], any>>(`/users?username=${values.username}&password=${values.password}&roleState=true&_expand=role`).then(res => {
@@ -21,7 +22,7 @@ export default function Login() {
                 message.error("帳號或密碼錯誤");
             }
             else {
-                setUserInfo(res.data[0]);
+                dispatch(setUserInfo(res.data[0]))
                 navigate("/home");
             }
         })

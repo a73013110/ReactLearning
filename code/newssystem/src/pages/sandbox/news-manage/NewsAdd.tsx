@@ -2,11 +2,11 @@ import { Button, Form, Input, message, notification, PageHeader, Select, Steps }
 import axios from 'axios';
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import useAuth from '../../../components/hook/useAuth';
 import NewsEditor from '../../../components/news/NewsEditor';
 import { EAuditState } from '../../../enum/news/EAuditState';
 import { EPublishState } from '../../../enum/news/EPublishState';
 import { ICategory } from '../../../interface/news/ICategory';
+import { useAppSelector } from '../../../redux/hooks';
 
 import style from './News.module.css'
 
@@ -19,7 +19,7 @@ export default function NewsAdd() {
     const [form] = Form.useForm();
     const [formInfo, setFormInfo] = useState({})
     const [content, setContent] = useState("");
-    const { userInfo } = useAuth();
+    const userInfo = useAppSelector(state => state.auth.userInfo);
     const navigate = useNavigate();
 
     useEffect(() => {
