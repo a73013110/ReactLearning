@@ -1,15 +1,18 @@
-import { Layout } from 'antd'
+import { Layout, Spin } from 'antd'
 import { Outlet } from 'react-router-dom'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import SideMenu from '../../components/sandbox/SideMenu'
 import TopHeader from '../../components/sandbox/TopHeader'
 import './NewsSandBox.css'
+import { useAppSelector } from '../../redux/hooks'
 const { Content } = Layout;
 
 export default function NewsSandBox() {
     NProgress.start();
     NProgress.done();
+
+    const isLoading = useAppSelector(state => state.loading.isLoading);
 
     return (
         <Layout>
@@ -25,7 +28,9 @@ export default function NewsSandBox() {
                         overflow: "auto"
                     }}
                 >
-                    <Outlet />
+                    <Spin size="large" spinning={isLoading}>
+                        <Outlet />
+                    </Spin>
                 </Content>
             </Layout>
         </Layout>

@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import collapsedReducer from '../slices/collapsedSlice';
+import loadingSlice from '../slices/loadingSlice';
 
 export const store = configureStore({
     reducer: {
-        collapsed: collapsedReducer
+        collapsed: collapsedReducer,
+        loading: loadingSlice
     },
     devTools: true
 });
