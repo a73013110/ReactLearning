@@ -13,6 +13,9 @@ const persistedReducer = persistReducer<RootReducer>(persistConfig, rootReducer)
 
 export const store = configureStore({
     reducer: persistedReducer,
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+        serializableCheck: false,   // 不檢查Action回傳資料是否正確序列化
+    }),
     devTools: true
 });
 
