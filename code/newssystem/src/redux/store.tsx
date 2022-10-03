@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
+import authSlice from '../slices/authSlice';
 import collapsedReducer from '../slices/collapsedSlice';
 import loadingSlice from '../slices/loadingSlice';
 
 export const store = configureStore({
     reducer: {
         collapsed: collapsedReducer,
-        loading: loadingSlice
+        loading: loadingSlice,
+        auth: authSlice
     },
     devTools: true
 });
