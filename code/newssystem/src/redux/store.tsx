@@ -1,14 +1,18 @@
 import { configureStore } from '@reduxjs/toolkit';
-import authSlice from '../slices/authSlice';
-import collapsedReducer from '../slices/collapsedSlice';
-import loadingSlice from '../slices/loadingSlice';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import rootReducer, { RootReducer } from './rootReducer'
+
+const persistConfig = {
+    key: 'root',
+    storage,
+    whitelist: ["auth", "collapsed"]
+};
+
+const persistedReducer = persistReducer<RootReducer>(persistConfig, rootReducer);
 
 export const store = configureStore({
-    reducer: {
-        collapsed: collapsedReducer,
-        loading: loadingSlice,
-        auth: authSlice
-    },
+    reducer: persistedReducer,
     devTools: true
 });
 
