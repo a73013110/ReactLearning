@@ -44,7 +44,7 @@ export default function MainRouter() {
     const [BackRouteList, setBackRouteList] = useState<RouteObject[]>([])
     const userInfo = useAppSelector(state => state.auth.userInfo);
     const isLogin = useAppSelector(state => state.auth.isLogin);
-
+    
     // 檢查該功能是否有key值或啟用狀態
     const checkRoute = (item: IMenuItem) => {
         return LocalRouterMap[item.key] && (item.pagepermission || item.routepermisson)
@@ -90,12 +90,16 @@ export default function MainRouter() {
     const route = useRoutes([
         {
             path: "/login",
-            element: <Login />
+            element: !isLogin ? <Login /> : <Navigate to="/" />
         },
         {
             path: "/",
-            element: <NewsSandBox />,
+            element: isLogin ? <NewsSandBox /> : <Navigate to="/login" />,
             children: BackRouteList
+        },
+        {
+            path: "*",
+            element: <Navigate to="/login" />
         }
     ])
 
