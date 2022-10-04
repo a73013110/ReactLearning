@@ -3,6 +3,8 @@ import { useCallback, useEffect, useState } from 'react';
 import { useRoutes, Navigate, RouteObject } from 'react-router-dom'
 import { IMenuItem } from '../interface/menu/IMenuItem';
 import Login from '../pages/login/Login';
+import Detail from '../pages/news/Detail';
+import News from '../pages/news/News';
 import Audit from '../pages/sandbox/audit-manage/Audit';
 import AuditList from '../pages/sandbox/audit-manage/AuditList';
 import Home from '../pages/sandbox/home/Home';
@@ -44,7 +46,7 @@ export default function MainRouter() {
     const [BackRouteList, setBackRouteList] = useState<RouteObject[]>([])
     const userInfo = useAppSelector(state => state.auth.userInfo);
     const isLogin = useAppSelector(state => state.auth.isLogin);
-    
+
     // 檢查該功能是否有key值或啟用狀態
     const checkRoute = (item: IMenuItem) => {
         return LocalRouterMap[item.key] && (item.pagepermission || item.routepermisson)
@@ -91,6 +93,14 @@ export default function MainRouter() {
         {
             path: "/login",
             element: !isLogin ? <Login /> : <Navigate to="/" />
+        },
+        {
+            path: "/news",
+            element: <News />
+        },
+        {
+            path: "/detail/:id",
+            element: <Detail />
         },
         {
             path: "/",
