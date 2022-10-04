@@ -1,5 +1,5 @@
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
-import { Avatar, Card, Col, List, Row } from 'antd'
+import { Avatar, Card, Col, Drawer, List, Row } from 'antd'
 import axios from 'axios';
 import * as echarts from 'echarts';
 import { useEffect, useRef, useState } from 'react';
@@ -15,7 +15,10 @@ export default function Home() {
     const userInfo = useAppSelector(state => state.auth.userInfo);
     const [viewList, setViewList] = useState<INews[]>([]);
     const [starList, setStarList] = useState<INews[]>([]);
+    const [allList, setAllList] = useState<INews[]>([])
     const barRef = useRef(null);
+    const pieRef = useRef(null);
+    const [open, setOpen] = useState(false);
 
     useEffect(() => {
         axios.get("/news?publishState=2&_expand=category&_sort=view&_order=desc&_limit=6").then(res => {
@@ -32,6 +35,7 @@ export default function Home() {
     useEffect(() => {
         axios.get("/news?publishState=2&_expand=category").then(res => {
             // console.log(res.data)
+            setAllList(res.data);
             renderBarView(_.groupBy(res.data, (item: INews) => item.category?.title));
         })
 
@@ -41,7 +45,10 @@ export default function Home() {
     }, [])
 
     const renderBarView = (obj: any) => {
-        var myChart = echarts.init(barRef.current as unknown as HTMLDivElement);
+        let barChart = echarts.getInstanceByDom(barRef.current as unknown as HTMLDivElement)
+        if (!barChart) {
+            barChart = echarts.init(barRef.current as unknown as HTMLDivElement);
+        }
 
         const option: EChartsOption = {
             title: {
@@ -69,11 +76,60 @@ export default function Home() {
             ]
         };
 
-        myChart.setOption(option);
+        barChart.setOption(option);
 
         window.onresize = () => {
-            myChart.resize();
+            barChart?.resize();
         }
+    }
+
+    const renderPieView = () => {
+        let currentList = allList.filter(item => item.author === userInfo.username);
+        let groupObj = _.groupBy(currentList, (item: INews) => item.category?.title);
+
+        let list = [];
+        for (const obj in groupObj) {
+            list.push({
+                name: obj,
+                value: groupObj[obj].length
+            })
+        }
+
+        let pieChart = echarts.getInstanceByDom(pieRef.current as unknown as HTMLDivElement)
+        if (!pieChart) {
+            pieChart = echarts.init(pieRef.current as unknown as HTMLDivElement);
+        }
+
+        const option: EChartsOption = {
+            title: {
+                text: "當前用戶新聞分類圖示",
+                left: 'center'
+            },
+            tooltip: {
+                trigger: 'item'
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left'
+            },
+            series: [
+                {
+                    name: "發布數量",
+                    type: 'pie',
+                    radius: '50%',
+                    data: list,
+                    emphasis: {
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+
+        pieChart.setOption(option);
     }
 
     return (
@@ -106,7 +162,7 @@ export default function Home() {
                             />
                         }
                         actions={[
-                            <SettingOutlined key="setting" />,
+                            <SettingOutlined key="setting" onClick={() => { setOpen(true) }} />,
                             <EditOutlined key="edit" />,
                             <EllipsisOutlined key="ellipsis" />,
                         ]}
@@ -122,6 +178,21 @@ export default function Home() {
                     </Card>
                 </Col>
             </Row>
+
+            <Drawer
+                title="個人新聞分類"
+                placement="right"
+                onClose={() => setOpen(false)}
+                open={open}
+                afterOpenChange={(open) => {
+                    if (open) {
+                        renderPieView();
+                    }
+                }}
+                width="500px"
+            >
+                <div ref={pieRef} style={{ width: "100%", height: "400px", marginTop: "30px" }}></div>
+            </Drawer>
 
             <div ref={barRef} style={{ width: "100%", height: "400px", marginTop: "30px" }}></div>
         </div>
