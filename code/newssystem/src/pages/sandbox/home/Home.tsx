@@ -1,9 +1,13 @@
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 import { Avatar, Card, Col, List, Row } from 'antd'
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import * as echarts from 'echarts';
+import { useEffect, useRef, useState } from 'react';
 import { INews } from '../../../interface/news/INews';
 import { useAppSelector } from '../../../redux/hooks';
+import _ from 'lodash';
+
+type EChartsOption = echarts.EChartsOption;
 
 const { Meta } = Card;
 
@@ -11,6 +15,7 @@ export default function Home() {
     const userInfo = useAppSelector(state => state.auth.userInfo);
     const [viewList, setViewList] = useState<INews[]>([]);
     const [starList, setStarList] = useState<INews[]>([]);
+    const barRef = useRef(null);
 
     useEffect(() => {
         axios.get("/news?publishState=2&_expand=category&_sort=view&_order=desc&_limit=6").then(res => {
@@ -23,6 +28,53 @@ export default function Home() {
             setStarList(res.data);
         })
     }, [])
+
+    useEffect(() => {
+        axios.get("/news?publishState=2&_expand=category").then(res => {
+            // console.log(res.data)
+            renderBarView(_.groupBy(res.data, (item: INews) => item.category?.title));
+        })
+
+        return () => {
+            window.onresize = null;
+        }
+    }, [])
+
+    const renderBarView = (obj: any) => {
+        var myChart = echarts.init(barRef.current as unknown as HTMLDivElement);
+
+        const option: EChartsOption = {
+            title: {
+                text: "新聞分類圖示"
+            },
+            tooltip: {},
+            legend: {
+                data: ['數量']
+            },
+            xAxis: {
+                data: Object.keys(obj),
+                axisLabel: {
+                    rotate: 45
+                }
+            },
+            yAxis: {
+                minInterval: 1
+            },
+            series: [
+                {
+                    name: '數量',
+                    type: 'bar',
+                    data: Object.values<[]>(obj).map(item => item.length)
+                }
+            ]
+        };
+
+        myChart.setOption(option);
+
+        window.onresize = () => {
+            myChart.resize();
+        }
+    }
 
     return (
         <div className="site-card-wrapper">
@@ -70,6 +122,8 @@ export default function Home() {
                     </Card>
                 </Col>
             </Row>
+
+            <div ref={barRef} style={{ width: "100%", height: "400px", marginTop: "30px" }}></div>
         </div>
     )
 }
